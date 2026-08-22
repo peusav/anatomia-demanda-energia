@@ -1,0 +1,7 @@
+requests==2.34.2
+pyarrow==25.0.1
+
+# Faz o Python confiar nos mesmos certificados raiz que o Windows já confia.
+# Necessário em máquinas com antivírus/proxy corporativo que inspeciona HTTPS
+# (sem isso, requests falha com CERTIFICATE_VERIFY_FAILED ao baixar do ONS).
+pip-system-certs==5.3

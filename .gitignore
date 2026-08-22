@@ -1,0 +1,16 @@
+# Ambiente virtual
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Dados brutos baixados (grandes, reproduzíveis via src/extract_ons.py)
+data/raw/*.parquet
+data/raw/*.parquet.tmp
+
+# Dados consolidados (grandes, reproduzíveis via src/consolidate.py)
+data/consolidated/*.parquet
+
+# Documento de contexto do projeto (não versionado)
+anatomia_demanda_energia_eletrica_brasileira.md
