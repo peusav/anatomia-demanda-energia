@@ -24,13 +24,17 @@ Ao final, o dataset consolidado estará em `data\consolidated\CURVA_CARGA_{ano_i
 .
 ├── data/
 │   ├── raw/            # dados baixados do ONS, um arquivo por ano (não versionado)
-│   └── consolidated/   # todos os anos unidos em um único parquet (não versionado)
+│   └── consolidated/
+│       ├── CURVA_CARGA_{ano_inicial}_{ano_final}.parquet   # não versionado
+│       └── dim_datas.parquet   # dimensão de calendário, versionada
 ├── powerbi/             # arquivos do painel Power BI
 ├── src/
 │   ├── extract_ons.py   # baixa a curva de carga horária do ONS (2019-2026)
 │   └── consolidate.py   # une os parquets de data/raw em um único arquivo
 └── requirements.txt
 ```
+
+`data/consolidated/dim_datas.parquet` é a dimensão de datas (calendário) usada no modelo do Power BI — campos como ano, mês, trimestre, dia da semana, feriado, tipo de dia, estação do ano etc., cobrindo 2019-2026. Ela já vem pronta no repositório; o processo que a gera não faz parte deste projeto público.
 
 ## Pré-requisitos
 

@@ -12,5 +12,13 @@ data/raw/*.parquet.tmp
 # Dados consolidados (grandes, reproduzíveis via src/consolidate.py)
 data/consolidated/*.parquet
 
+# Exceção: a dimensão de datas gerada É versionada (não dá pra
+# regerá-la sem a planilha fonte abaixo, que fica só local)
+!data/consolidated/dim_datas.parquet
+
 # Documento de contexto do projeto (não versionado)
 anatomia_demanda_energia_eletrica_brasileira.md
+
+# Insumo local para gerar a dimensão de datas (não versionado)
+data/external/
+src/build_dim_datas.py
