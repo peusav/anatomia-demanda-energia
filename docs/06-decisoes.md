@@ -68,8 +68,14 @@ Registro curto das decisões que não são dedutíveis do código. Formato: cont
 **Decisão.** Manter em `data/reference/anomalias.csv`, versionado e mantido à mão, e importar no Power BI — não criar como tabela "Inserir dados" nem como coluna da fato.
 **Consequência.** A mesma lista serve à exploração em Python e ao dashboard; o histórico de mudanças fica no git; a fato continua cópia fiel do ONS. Medidas de máximo/recorde devem excluir `tratamento = excluir`.
 
+## D12 — Dimensão de datas calculada, não transcrita (13/09/2026)
+
+**Contexto.** A revisão completa da `dim_datas` encontrou 27 divergências de feriado herdadas da planilha (Independência em 07/07 em 2024–2026; Carnaval só na terça, errado em 2019 e ausente em 2026; Corpus Christi só em 2023) e duas convenções de semana misturadas.
+**Decisão.** O gerador passa a calcular feriados nacionais e móveis a partir da data (Páscoa pelo algoritmo de Meeus), usa ISO 8601 para semana, e acrescenta `PontoFacultativo`, `Vespera`, `DiaUtil` e `RegimeMetodologico`. A planilha fornece apenas a lista de datas.
+**Consequência.** Efeitos de calendário saem da tabela de anomalias; curvas típicas usam `TipoDia` e `Vespera`; o regime metodológico vem da dimensão, não de medida.
+
 ## Pendentes (a decidir na exploração)
 
 - ~~Tratamento dos saltos hora a hora~~ → resolvido em D10.
 - Confirmar a normalização principal (D05).
-- Se a dimensão de hora e o regime metodológico entram como colunas no consolidado ou como colunas calculadas no Power BI.
+- Se a dimensão de hora entra como tabela própria (0–23, rótulo, período do dia) — o regime metodológico já está na `dim_datas`.

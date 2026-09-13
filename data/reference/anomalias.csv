@@ -22,17 +22,3 @@ C4,2022-01-16,2022-01-23,,,S,clima_hipotese,sinalizar,Sul +16 a +22% vs mesmo ti
 C5,2023-12-14,2023-12-18,,,S,clima_hipotese,sinalizar,Sul +16 a +24% vs mesmo tipo de dia,docs/07-anomalias.md
 C6,2024-11-09,2024-11-09,,,S,clima_hipotese,sinalizar,Sábado com perfil de domingo de inverno (-20%; carga diurna de 7.6 GW contra 13-14 GW no sábado anterior); ONS sem ocorrências; provável frente fria,docs/07-anomalias.md
 C7,2026-05-03,2026-05-10,,,S,clima_hipotese,sinalizar,Dois domingos -20% de dia e rampa noturna acentuada; provável frio,docs/07-anomalias.md
-K1,2019-03-04,2019-03-05,,,*,calendario,excluir,Carnaval 2019 (segunda e terça): NE -16/-18%; SE -16%; não marcado como feriado na dim_datas,docs/07-anomalias.md
-K2,2023-02-20,2023-02-20,,,*,calendario,excluir,Segunda-feira de Carnaval 2023: S -19%; a dim_datas marca só a terça,docs/07-anomalias.md
-K3,2026-02-16,2026-02-17,,,*,calendario,excluir,Carnaval 2026 (segunda e terça); não marcado na dim_datas,docs/07-anomalias.md
-K4,2026-09-07,2026-09-07,,,*,calendario,excluir,Independência do Brasil (segunda-feira): S -24%; SE -19%; SIN -17%; a dim_datas marca 07/07 em 2024-2026,docs/07-anomalias.md
-K5,2019-12-24,2019-12-24,,,*,calendario,excluir,Véspera de Natal em dia útil: S -19%,docs/07-anomalias.md
-K6,2019-12-31,2019-12-31,,,*,calendario,excluir,Véspera de Ano-Novo em dia útil,docs/07-anomalias.md
-K7,2020-12-24,2020-12-24,,,*,calendario,excluir,Véspera de Natal em dia útil: S -17%; SE -16%,docs/07-anomalias.md
-K8,2020-12-31,2020-12-31,,,*,calendario,excluir,Véspera de Ano-Novo em dia útil: S -20%,docs/07-anomalias.md
-K9,2021-12-24,2021-12-24,,,*,calendario,excluir,Véspera de Natal em dia útil: S -21%,docs/07-anomalias.md
-K10,2021-12-31,2021-12-31,,,*,calendario,excluir,Véspera de Ano-Novo em dia útil: S -24%; SE -16%,docs/07-anomalias.md
-K11,2024-12-24,2024-12-24,,,*,calendario,excluir,Véspera de Natal em dia útil: S -16%,docs/07-anomalias.md
-K12,2024-12-31,2024-12-31,,,*,calendario,excluir,Véspera de Ano-Novo em dia útil: S -18%; SE -17%,docs/07-anomalias.md
-K13,2025-12-24,2025-12-24,,,*,calendario,excluir,Véspera de Natal em dia útil: N com perfil atípico,docs/07-anomalias.md
-K14,2025-12-31,2025-12-31,,,*,calendario,excluir,Véspera de Ano-Novo em dia útil: S -17%,docs/07-anomalias.md

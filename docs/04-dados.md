@@ -17,7 +17,21 @@ powerbi/ (PBIP)  ← fato_curva_carga + dim_datas
 
 `data/reference/anomalias.csv` é a tabela de anomalias, eventos e datas de calendário que afetam curvas típicas e extremos, mantida à mão a partir de [07-anomalias.md](07-anomalias.md) (dicionário das colunas lá).
 
-`data/consolidated/dim_datas.parquet` é a dimensão de calendário (2019–2026), pronta e versionada. Cobre ano, semestre, trimestre, mês, semana, dia da semana, fim de semana, feriado e nome do feriado, tipo de dia (Dia útil / Sábado / Domingo / Feriado), estação do ano e ano bissexto.
+`data/consolidated/dim_datas.parquet` é a dimensão de calendário (2019–2026), versionada. Todos os campos são calculados a partir da data:
+
+| Grupo | Colunas | Convenção |
+|---|---|---|
+| Hierarquia | `Ano`, `Semestre`, `Trimestre`, `MesNumero`, `MesNome`, `MesAbrev`, `AnoMes`, `AnoMesOrdem`, `DiaMes`, `DiaAno` | — |
+| Semana | `SemanaAno`, `AnoSemana` | ISO 8601 (segunda a domingo; 01/01/2021 é `2020-W53`) |
+| Dia da semana | `DiaSemanaNumero` (1 = segunda … 7 = domingo), `DiaSemana`, `DiaSemanaAbrev`, `FimDeSemana` | — |
+| Feriados | `Feriado` (Sim/Não), `NomeFeriado` | Feriados nacionais por lei; Consciência Negra a partir de 2024; Paixão de Cristo pela Páscoa |
+| Pontos facultativos | `PontoFacultativo` | Carnaval (segunda e terça), Quarta-feira de Cinzas, Corpus Christi |
+| Vésperas | `Vespera` | `Natal` (24/12), `Ano-Novo` (31/12), `-` |
+| Tipo de dia | `TipoDia` (Dia útil / Sábado / Domingo / Feriado), `DiaUtil` | Carnaval e Corpus Christi contam como `Feriado`; Quarta-feira de Cinzas é dia útil |
+| Estação | `EstacaoAno`, `AnoBissexto` | Datas fixas do hemisfério sul |
+| Metodologia | `RegimeMetodologico` | `Supervisão ONS` até 01/03/2021; `Carga global` até 28/04/2023; `Carga global + MMGD` depois |
+
+Curvas típicas devem segmentar por `TipoDia` e, para dias úteis, excluir `Vespera <> "-"` (24/12 e 31/12 se comportam como sábado — ver [07-anomalias.md](07-anomalias.md)).
 
 ## Fonte
 
@@ -64,7 +78,7 @@ Nada é filtrado, agregado, renomeado ou recalculado. O consolidado é a união 
 
 - `fato_curva_carga` ← consolidado, com relacionamento para `dim_datas` pela data de `din_instante`.
 - Uma pequena dimensão de hora (0–23, rótulo, período do dia, ordem) **ainda não existe** — está prevista após a exploração.
-- Coluna ou medida de regime metodológico (`Supervisão ONS` / `Carga global` / `Carga global + MMGD`) derivada de `din_instante` — **ainda não existe**.
+- Regime metodológico: já disponível em `dim_datas[RegimeMetodologico]`.
 - Rótulo único de subsistema derivado de `id_subsistema` — **ainda não existe**.
 - Tabela `anomalias` importada de `data/reference/anomalias.csv`, relacionada à fato por data e subsistema, usada pelas medidas de curva típica e de máximos — **ainda não importada**.
 

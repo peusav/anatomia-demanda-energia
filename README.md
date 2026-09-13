@@ -38,7 +38,8 @@ Três cuidados que valem para qualquer número deste projeto:
 - [x] Extração e consolidação reproduzíveis, com manifest e hash
 - [x] Diagnóstico de qualidade (269.856 registros, sem gaps, sem nulos, reconciliado com a base diária do ONS)
 - [x] Camada conceitual e metodológica documentada
-- [x] Anomalias, eventos e efeitos de calendário investigados contra fontes externas (`data/reference/anomalias.csv`)
+- [x] Anomalias e eventos investigados contra fontes externas (`data/reference/anomalias.csv`)
+- [x] Dimensão de datas revisada: feriados calculados, pontos facultativos, vésperas e regime metodológico
 - [ ] Análise exploratória 2019–2026
 - [ ] Modelo e dashboard em Power BI
 - [ ] Principais achados

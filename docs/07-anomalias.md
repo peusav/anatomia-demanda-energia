@@ -135,7 +135,7 @@ O método de nível diário sinalizou como "dia útil atípico" um conjunto de d
 - **07/09/2026** (Independência, segunda-feira): S −24%, SE −19%, SIN −17%; a dimensão de datas registra a Independência em **07/07** nos anos 2024, 2025 e 2026 (troca de dia e mês).
 - **Corpus Christi** só está marcado em 2023 (é ponto facultativo, então a ausência nos outros anos pode ser intencional).
 
-Os fatos acima sobre a `dim_datas` são reportados aqui porque afetam diretamente a definição de "dia típico"; a correção é decisão do autor da dimensão. Enquanto isso, as datas estão na tabela de anomalias com tipo `calendario` e tratamento `excluir`.
+**Atualização (13/09/2026):** a dimensão de datas foi revisada e regenerada — feriados nacionais e móveis passaram a ser calculados a partir da data (Páscoa por algoritmo), e ganhou as colunas `PontoFacultativo`, `Vespera`, `DiaUtil` e `RegimeMetodologico`. Todos os casos acima agora estão corretos na `dim_datas`; as linhas `K` foram retiradas da tabela de anomalias, que fica só com dados, eventos e clima.
 
 ### Clima sem documentação (hipóteses)
 
@@ -145,12 +145,12 @@ O Sul responde à temperatura com amplitude que nenhum outro subsistema tem: dez
 
 | Coluna | Conteúdo |
 |---|---|
-| `id` | A = anomalia de dado/operação; E = evento social; C = clima; K = calendário |
+| `id` | A = anomalia de dado/operação; E = evento social; C = clima |
 | `data_inicio`, `data_fim` | Intervalo de datas (inclusive) |
 | `hora_inicio`, `hora_fim` | Intervalo de horas (inclusive), vazio = dia inteiro |
 | `id_subsistema` | `N`, `NE`, `S`, `SE` ou `*` (todos) |
-| `tipo` | `evento_documentado`, `clima_documentado`, `clima_hipotese`, `artefato_provavel`, `nao_explicado`, `calendario` |
+| `tipo` | `evento_documentado`, `clima_documentado`, `clima_hipotese`, `artefato_provavel`, `nao_explicado` |
 | `tratamento` | `excluir` = fora das curvas típicas e dos extremos; `sinalizar` = entra nos cálculos, com anotação disponível |
 | `descricao`, `referencia` | Texto e fonte |
 
-37 linhas em 13/09/2026: 18 `excluir`, 19 `sinalizar`. A tabela é mantida à mão; toda linha nova precisa de uma entrada neste documento e, quando houver, em [fontes.md](fontes.md).
+23 linhas em 13/09/2026: 4 `excluir`, 19 `sinalizar`. Efeitos de calendário (feriados, pontos facultativos, vésperas) não ficam aqui — estão na `dim_datas`. A tabela é mantida à mão; toda linha nova precisa de uma entrada neste documento e, quando houver, em [fontes.md](fontes.md).
