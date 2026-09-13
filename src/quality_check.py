@@ -50,6 +50,7 @@ METHOD_BREAKS = [
 ]
 
 JUMP_THRESHOLD = 0.25  # variação hora a hora considerada suspeita
+JUMP_EXCESS = 0.10  # quanto o salto precisa exceder a variação habitual do mesmo horário/dia da semana
 DAILY_TOLERANCE = 0.005  # 0,5% de diferença entre horária agregada e diária
 
 
@@ -171,18 +172,48 @@ def check_values(rows: list[dict]) -> tuple[dict, str]:
 
 
 def check_jumps(rows: list[dict]) -> str:
+    """
+    Saltos hora a hora acima do limiar, descontando o que é rampa habitual.
+
+    Para cada salto, compara a variação com a variação mediana no mesmo
+    horário e mesmo dia da semana nas quatro semanas vizinhas (duas antes,
+    duas depois). Só é sinalizado se exceder essa referência em mais de
+    JUMP_EXCESS pontos percentuais — assim a rampa noturna de domingo no Sul,
+    que ultrapassa 25% mas se repete toda semana, deixa de aparecer.
+    """
     table = []
     for s in SUBSYSTEMS:
-        series = sorted((r["din_instante"], r["val_cargaenergiahomwmed"]) for r in rows if r["id_subsistema"] == s)
-        jumps = [
-            (a[0], a[1], b[1])
-            for a, b in zip(series, series[1:])
-            if a[1] and abs(b[1] / a[1] - 1) > JUMP_THRESHOLD
-        ]
-        by_month = Counter(f"{t:%Y-%m}" for t, _, _ in jumps)
+        series = {r["din_instante"]: r["val_cargaenergiahomwmed"] for r in rows if r["id_subsistema"] == s}
+        ts = sorted(series)
+        flagged = []
+        for a, b in zip(ts, ts[1:]):
+            va, vb = series[a], series[b]
+            if not va:
+                continue
+            change = vb / va - 1
+            if abs(change) <= JUMP_THRESHOLD:
+                continue
+            reference = []
+            for weeks in (-2, -1, 1, 2):
+                ra = a + timedelta(weeks=weeks)
+                rb = b + timedelta(weeks=weeks)
+                if ra in series and rb in series and series[ra]:
+                    reference.append(series[rb] / series[ra] - 1)
+            typical = sorted(reference)[len(reference) // 2] if reference else 0.0
+            if abs(change - typical) > JUMP_EXCESS:
+                flagged.append((b, va, vb, change, typical))
+        by_month = Counter(f"{t:%Y-%m}" for t, *_ in flagged)
         months = ", ".join(f"{m} ({n})" for m, n in sorted(by_month.items())[:6]) or "-"
-        table.append([s, len(jumps), months])
-    return md_table(["Subsistema", f"Saltos > {int(JUMP_THRESHOLD * 100)}% hora a hora", "Meses (quantidade)"], table)
+        worst = max(flagged, key=lambda x: abs(x[3]), default=None)
+        worst_text = (
+            f"{worst[0]:%Y-%m-%d %H}h: {worst[1]:.0f} → {worst[2]:.0f} ({100 * worst[3]:+.0f}%; habitual {100 * worst[4]:+.0f}%)"
+            if worst else "-"
+        )
+        table.append([s, len(flagged), months, worst_text])
+    return md_table(
+        ["Subsistema", f"Saltos > {int(JUMP_THRESHOLD * 100)}% além do habitual", "Meses (quantidade)", "Maior salto"],
+        table,
+    )
 
 
 def check_names(rows: list[dict]) -> str:
@@ -313,8 +344,9 @@ def build_report(skip_daily: bool) -> str:
         "",
         "## 5. Saltos hora a hora",
         "",
-        "Variações abruptas entre horas consecutivas. Não são necessariamente erro — podem ser eventos "
-        "operacionais reais — mas merecem investigação antes de compor curvas típicas.",
+        "Variações abruptas entre horas consecutivas que excedem a variação habitual do mesmo horário e dia da "
+        "semana nas semanas vizinhas. Não são necessariamente erro — podem ser eventos operacionais reais — mas "
+        "merecem investigação antes de compor curvas típicas. Cada uma está classificada em `07-anomalias.md`.",
         "",
         check_jumps(rows),
         "",

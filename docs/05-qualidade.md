@@ -1,6 +1,6 @@
 # Diagnóstico de qualidade — Curva de Carga Horária
 
-> Gerado automaticamente por `src/quality_check.py` em 13/09/2026 17:18. Não edite à mão; rode o script novamente após uma nova extração.
+> Gerado automaticamente por `src/quality_check.py` em 13/09/2026 17:27. Não edite à mão; rode o script novamente após uma nova extração.
 
 ## Resumo
 
@@ -56,14 +56,14 @@ Duplicidades: 0
 
 ## 5. Saltos hora a hora
 
-Variações abruptas entre horas consecutivas. Não são necessariamente erro — podem ser eventos operacionais reais — mas merecem investigação antes de compor curvas típicas.
+Variações abruptas entre horas consecutivas que excedem a variação habitual do mesmo horário e dia da semana nas semanas vizinhas. Não são necessariamente erro — podem ser eventos operacionais reais — mas merecem investigação antes de compor curvas típicas. Cada uma está classificada em `07-anomalias.md`.
 
-| Subsistema | Saltos > 25% hora a hora | Meses (quantidade) |
-|---|---|---|
-| N | 17 | 2020-04 (10), 2023-08 (6), 2024-11 (1) |
-| NE | 1 | 2021-12 (1) |
-| S | 7 | 2020-07 (1), 2020-08 (3), 2022-09 (1), 2025-08 (1), 2026-05 (1) |
-| SE | 0 | - |
+| Subsistema | Saltos > 25% além do habitual | Meses (quantidade) | Maior salto |
+|---|---|---|---|
+| N | 17 | 2020-04 (10), 2023-08 (6), 2024-11 (1) | 2023-08-15 09h: 4538 → 1364 (-70%; habitual +4%) |
+| NE | 1 | 2021-12 (1) | 2021-12-22 14h: 11872 → 15049 (+27%; habitual +4%) |
+| S | 2 | 2025-08 (1), 2026-05 (1) | 2025-08-10 17h: 8605 → 10916 (+27%; habitual +15%) |
+| SE | 0 | - | - |
 
 ## 6. Grafias de subsistema
 
