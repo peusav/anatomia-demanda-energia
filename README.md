@@ -35,7 +35,7 @@ Três cuidados que valem para qualquer número deste projeto:
 ## Estado atual
 
 - [x] Extração e consolidação reproduzíveis, com manifest e hash
-- [x] Diagnóstico de qualidade (267.744 registros, sem gaps, sem nulos, reconciliado com a base diária do ONS)
+- [x] Diagnóstico de qualidade (269.856 registros, sem gaps, sem nulos, reconciliado com a base diária do ONS)
 - [x] Camada conceitual e metodológica documentada
 - [ ] Análise exploratória 2019–2026
 - [ ] Modelo e dashboard em Power BI

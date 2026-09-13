@@ -38,7 +38,7 @@ powerbi/ (PBIP)  ← fato_curva_carga + dim_datas
 | `din_instante` | timestamp | Data de referência | Início da hora, hora padrão de Brasília, sem horário de verão. Um registro por hora cheia |
 | `val_cargaenergiahomwmed` | double | Valor da Carga de Energia, em MWmed | Potência média demandada na hora. Numericamente igual à energia da hora em MWh. Nulo/negativo não permitidos, zero permitido (dicionário) |
 
-Volume: 267.744 linhas (4 subsistemas × 66.936 horas) de 01/01/2019 00h a 20/08/2026 23h na extração de 22/08/2026.
+Volume: 269.856 linhas (4 subsistemas × 67.464 horas) de 01/01/2019 00h a 11/09/2026 23h na extração de 13/09/2026. O número atualizado está sempre em [05-qualidade.md](05-qualidade.md).
 
 ## Transformações aplicadas
 
