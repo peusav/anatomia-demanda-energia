@@ -9,7 +9,7 @@ ONS Dados Abertos (S3, um parquet por ano)
 data/raw/CURVA_CARGA_{ano}.parquet          ← cópia fiel do ONS, versionada
         │  src/consolidate.py — unifica tipos entre anos e concatena
         ▼
-data/consolidated/CURVA_CARGA_2019_2026.parquet   ← fato (não versionada; reconstruível)
+data/consolidated/CURVA_CARGA_2019_2026.parquet   ← fato (versionada)
         │  src/quality_check.py — gera docs/05-qualidade.md
         ▼
 powerbi/ (PBIP)  ← fato_curva_carga + dim_datas

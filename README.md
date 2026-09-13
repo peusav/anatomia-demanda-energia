@@ -47,7 +47,7 @@ Três cuidados que valem para qualquer número deste projeto:
 .
 ├── data/
 │   ├── raw/             # parquets do ONS, um por ano + manifest.csv (versionados)
-│   └── consolidated/    # CURVA_CARGA_2019_2026.parquet (gerado) e dim_datas.parquet
+│   └── consolidated/    # CURVA_CARGA_2019_2026.parquet e dim_datas.parquet (versionados)
 ├── docs/                # documentação conceitual e metodológica
 ├── powerbi/             # projeto Power BI (PBIP)
 ├── src/

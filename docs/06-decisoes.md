@@ -53,7 +53,7 @@ Registro curto das decisões que não são dedutíveis do código. Formato: cont
 ## D09 — Dados brutos versionados
 
 **Contexto.** O ONS revisa dados após publicação; o portal pode mudar.
-**Decisão.** Versionar `data/raw/*.parquet` (≈3,6 MB) e o manifest; não versionar o consolidado (reconstruível).
+**Decisão.** Versionar `data/raw/*.parquet` (≈3,7 MB), o manifest e o consolidado (≈2,8 MB).
 **Consequência.** Qualquer pessoa reproduz exatamente a análise da data de extração, mesmo que o ONS revise os arquivos.
 
 ## Pendentes (a decidir na exploração)
