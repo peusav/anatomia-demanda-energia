@@ -1,0 +1,63 @@
+# 06 — Decisões analíticas
+
+Registro curto das decisões que não são dedutíveis do código. Formato: contexto → decisão → consequência. Novas decisões entram no fim, com data.
+
+## D01 — Curva de Carga Horária como única fato
+
+**Contexto.** O ONS publica carga em três bases: horária, diária e no balanço de energia (com geração e intercâmbio).
+**Decisão.** Usar só a horária. A diária serve para validar; o balanço fica fora.
+**Consequência.** O produto consegue falar de formato (quando), que é sua tese. Verificou-se depois que a diária é a média exata da horária, então nada se perde. Geração e oferta não entram, mantendo o escopo em demanda.
+
+## D02 — Janela 2019–2026
+
+**Contexto.** O ONS tem histórico desde 2000.
+**Decisão.** Começar em 2019 (um ano pré-pandemia como âncora) e ir até o ano corrente.
+**Consequência.** A janela atravessa COVID e duas mudanças metodológicas — rica para padrões e rupturas, inadequada para "crescimento acumulado". Exige as janelas de D03.
+
+## D03 — Três janelas: histórico, núcleo comparável, YTD
+
+**Contexto.** Definição de carga mudou em 02/03/2021 e 29/04/2023; 2026 é parcial.
+**Decisão.** 2019–2025 para estrutura e rupturas; 2024–2025 para comparações rigorosas; 2026 só YTD contra o mesmo intervalo.
+**Consequência.** Todo visual histórico carrega os marcos; nenhum KPI compara 2026 com ano cheio.
+
+## D04 — Curvas típicas por tipo de dia
+
+**Contexto.** Dia útil, sábado, domingo e feriado têm formatos distintos.
+**Decisão.** Nunca calcular "dia médio" misturando tipos; segmentar por `TipoDia`.
+**Consequência.** Toda curva típica é qualificada ("dia útil de 2025 no SE").
+
+## D05 — Normalização principal pela média do dia
+
+**Contexto.** Três candidatas avaliadas em [03-metodologia.md](03-metodologia.md) §6.
+**Decisão (preliminar).** carga(h) ÷ média do dia como principal; ÷ pico como complementar; min-max descartada.
+**Consequência.** Formato e amplitude relativa ficam comparáveis entre subsistemas e anos. Revisar após a exploração.
+
+## D06 — `id_subsistema` como chave; rótulo único para SE
+
+**Contexto.** `nom_subsistema` muda de `SUDESTE` para `SUDESTE/CENTRO-OESTE` em 2026 (dicionário v1.2).
+**Decisão.** Relacionamentos e filtros usam o código; o rótulo de exibição é "Sudeste/Centro-Oeste" para todo o período.
+**Consequência.** O Sudeste não se parte em duas séries no Power BI.
+
+## D07 — EPE/IBGE só depois, e só se ajudar
+
+**Contexto.** Há interesse em relacionar carga com população/consumo por UF. Subsistema do ONS não coincide com região do IBGE.
+**Decisão.** Nenhuma camada territorial antes de concluir a exploração do ONS. Se entrar, a EPE fornece consumo (não carga) e a compatibilidade subsistema × UF precisa de fonte oficial.
+**Consequência.** Evita dois projetos paralelos e evita a divisão ingênua "população da região NE ÷ carga do subsistema NE".
+
+## D08 — Sem base meteorológica na primeira versão
+
+**Contexto.** Temperatura explica parte das anomalias.
+**Decisão.** Não incorporar. Consultar clima como contexto pontual quando uma anomalia exigir.
+**Consequência.** Anomalias são descritas, não explicadas causalmente.
+
+## D09 — Dados brutos versionados
+
+**Contexto.** O ONS revisa dados após publicação; o portal pode mudar.
+**Decisão.** Versionar `data/raw/*.parquet` (≈3,6 MB) e o manifest; não versionar o consolidado (reconstruível).
+**Consequência.** Qualquer pessoa reproduz exatamente a análise da data de extração, mesmo que o ONS revise os arquivos.
+
+## Pendentes (a decidir na exploração)
+
+- Tratamento dos dias com saltos hora a hora no Norte (abril/2020, agosto/2023) e nos domingos do Sul: manter, excluir das curvas típicas ou sinalizar.
+- Confirmar a normalização principal (D05).
+- Se a dimensão de hora e o regime metodológico entram como colunas no consolidado ou como colunas calculadas no Power BI.
