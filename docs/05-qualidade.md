@@ -1,16 +1,16 @@
 # Diagnóstico de qualidade — Curva de Carga Horária
 
-> Gerado automaticamente por `src/quality_check.py` em 13/09/2026 14:08. Não edite à mão; rode o script novamente após uma nova extração.
+> Gerado automaticamente por `src/quality_check.py` em 13/09/2026 17:18. Não edite à mão; rode o script novamente após uma nova extração.
 
 ## Resumo
 
 | Item | Valor |
 |---|---|
 | Arquivo | `data/consolidated/CURVA_CARGA_2019_2026.parquet` |
-| Última extração (manifest, UTC) | 2026-08-22T15:23:09.415954+00:00 |
-| Registros | 267.744 |
-| Período | 01/01/2019 00h → 20/08/2026 23h |
-| Último dia com dados | 20/08/2026 (corte para comparações YTD) |
+| Última extração (manifest, UTC) | 2026-09-13T20:17:52.499258+00:00 |
+| Registros | 269.856 |
+| Período | 01/01/2019 00h → 11/09/2026 23h |
+| Último dia com dados | 11/09/2026 (corte para comparações YTD) |
 | Duplicidades (subsistema, instante) | 0 |
 | Dias com quantidade de horas ≠ 24 | 0 |
 | Valores nulos / negativos / zero | 0 / 0 / 0 |
@@ -26,20 +26,20 @@
 | 2023 | 8760 | 8760 | 8760 | 8760 | 8760 | completo |
 | 2024 | 8784 | 8784 | 8784 | 8784 | 8784 | completo |
 | 2025 | 8760 | 8760 | 8760 | 8760 | 8760 | completo |
-| 2026 | 8760 | 5568 | 5568 | 5568 | 5568 | parcial |
+| 2026 | 8760 | 6096 | 6096 | 6096 | 6096 | parcial |
 
 ## 2. Continuidade horária
 
 | Subsistema | Primeiro | Último | Registros | Fora da hora cheia | Gaps/saltos | Exemplos |
 |---|---|---|---|---|---|---|
-| N | 2019-01-01 00h | 2026-08-20 23h | 66936 | 0 | 0 | - |
-| NE | 2019-01-01 00h | 2026-08-20 23h | 66936 | 0 | 0 | - |
-| S | 2019-01-01 00h | 2026-08-20 23h | 66936 | 0 | 0 | - |
-| SE | 2019-01-01 00h | 2026-08-20 23h | 66936 | 0 | 0 | - |
+| N | 2019-01-01 00h | 2026-09-11 23h | 67464 | 0 | 0 | - |
+| NE | 2019-01-01 00h | 2026-09-11 23h | 67464 | 0 | 0 | - |
+| S | 2019-01-01 00h | 2026-09-11 23h | 67464 | 0 | 0 | - |
+| SE | 2019-01-01 00h | 2026-09-11 23h | 67464 | 0 | 0 | - |
 
 ## 3. Horas por dia
 
-Distribuição de registros por (subsistema, dia): 24 horas → 11156 dias.
+Distribuição de registros por (subsistema, dia): 24 horas → 11244 dias.
 
 Nenhum dia irregular. A série é publicada em hora padrão, sem ajuste de horário de verão (o fim do horário de verão em 17/02/2019 não gerou dia de 25 horas).
 
@@ -47,10 +47,10 @@ Nenhum dia irregular. A série é publicada em hora padrão, sem ajuste de horá
 
 | Subsistema | Mínimo | P1 | Mediana | P99 | Máximo |
 |---|---|---|---|---|---|
-| N | 1364 | 4636 | 6557 | 9555 | 10929 |
-| NE | 7262 | 8379 | 11811 | 15369 | 18157 |
-| S | 5756 | 7331 | 12494 | 19031 | 22737 |
-| SE | 21658 | 26820 | 40704 | 55406 | 62150 |
+| N | 1364 | 4637 | 6577 | 9707 | 11196 |
+| NE | 7262 | 8382 | 11825 | 15397 | 18157 |
+| S | 5756 | 7336 | 12499 | 19015 | 22737 |
+| SE | 21658 | 26837 | 40727 | 55400 | 62150 |
 
 Duplicidades: 0
 
@@ -71,11 +71,11 @@ O dicionário de dados do ONS (v1.2, 06/04/2026) informa que o nome abreviado do
 
 | id_subsistema | nom_subsistema | De | Até |
 |---|---|---|---|
-| N | NORTE | 2019-01-01 | 2026-08-20 |
-| NE | NORDESTE | 2019-01-01 | 2026-08-20 |
-| S | SUL | 2019-01-01 | 2026-08-20 |
+| N | NORTE | 2019-01-01 | 2026-09-11 |
+| NE | NORDESTE | 2019-01-01 | 2026-09-11 |
+| S | SUL | 2019-01-01 | 2026-09-11 |
 | SE | SUDESTE | 2019-01-01 | 2025-12-31 |
-| SE | SUDESTE/CENTRO-OESTE | 2026-01-01 | 2026-08-20 |
+| SE | SUDESTE/CENTRO-OESTE | 2026-01-01 | 2026-09-11 |
 
 ## 7. Sinais em torno dos marcos metodológicos
 
@@ -118,4 +118,4 @@ A base diária do ONS deve ser igual à média das 24 horas da curva horária. D
 | 2023 | 1460 | 1460 | 0 | 0.00% em N 2023-04-23 (diária 6393 × horária 6393) |
 | 2024 | 1464 | 1464 | 0 | 0.00% em N 2024-03-22 (diária 7337 × horária 7337) |
 | 2025 | 1460 | 1460 | 0 | 0.00% em N 2025-02-02 (diária 7130 × horária 7130) |
-| 2026 | 1016 | 928 | 2 | 2.88% em NE 2026-05-30 (diária 12725 × horária 12359) |
+| 2026 | 1016 | 1016 | 0 | 0.00% em S 2026-04-18 (diária 13285 × horária 13285) |
