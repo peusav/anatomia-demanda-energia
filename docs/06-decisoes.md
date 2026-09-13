@@ -62,6 +62,12 @@ Registro curto das decisões que não são dedutíveis do código. Formato: cont
 **Decisão.** 15/08/2023 (apagão nacional, documentado pelo ONS) sai de todas as curvas típicas e recebe anotação nos gráficos históricos. Abril/2020 no Norte fica sinalizado como "não explicado" (já excluído das típicas por D04). Os pontos isolados de 22/12/2021 (NE) e 08/11/2024 (N) são mantidos como prováveis artefatos. Os domingos do Sul são comportamento normal e não recebem tratamento.
 **Consequência.** Uma tabela `anomalias` (data, subsistema, classificação) entra no modelo para excluir/anotar; o `quality_check.py` passa a comparar saltos com o mesmo horário de semanas vizinhas.
 
+## D11 — Tabela de anomalias fora do Power BI (13/09/2026)
+
+**Contexto.** A varredura ampla ([07-anomalias.md](07-anomalias.md), parte 2) produziu 37 registros entre artefatos, eventos, clima e calendário.
+**Decisão.** Manter em `data/reference/anomalias.csv`, versionado e mantido à mão, e importar no Power BI — não criar como tabela "Inserir dados" nem como coluna da fato.
+**Consequência.** A mesma lista serve à exploração em Python e ao dashboard; o histórico de mudanças fica no git; a fato continua cópia fiel do ONS. Medidas de máximo/recorde devem excluir `tratamento = excluir`.
+
 ## Pendentes (a decidir na exploração)
 
 - ~~Tratamento dos saltos hora a hora~~ → resolvido em D10.

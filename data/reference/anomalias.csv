@@ -1,0 +1,38 @@
+id,data_inicio,data_fim,hora_inicio,hora_fim,id_subsistema,tipo,tratamento,descricao,referencia
+A1,2023-08-15,2023-08-15,8,14,*,evento_documentado,excluir,Apagão nacional: abertura da LT 500 kV Quixadá-Fortaleza II às 08h31; 18.900 MW interrompidos (27% do SIN); Norte desligado por inteiro; recomposição total às 14h49,Boletim Diário ONS 15/08/2023
+A2,2020-04-01,2020-04-30,,,N,nao_explicado,sinalizar,Oscilação horária atípica (variação média hora a hora 7% vs 2% habitual) em fins de semana e feriados; nível -8% é COVID; oscilação sem explicação encontrada,docs/07-anomalias.md
+A3,2024-11-08,2024-11-08,23,23,N,artefato_provavel,excluir,Queda isolada de 1.5 GW por uma hora; ONS registra dia sem ocorrências,Boletim Diário ONS 08-09/11/2024
+A4,2021-12-22,2021-12-22,14,14,NE,artefato_provavel,excluir,Pico isolado de +3.2 GW por uma hora; ONS registra dia sem ocorrências,Boletim Diário ONS 22/12/2021
+A6,2024-02-08,2024-02-08,10,10,NE,artefato_provavel,excluir,Pico isolado de 18.157 MWmed (7% acima de qualquer outra hora do NE na série) entre horas de 14.6 e 14.9 GW; é o falso recorde do subsistema,docs/07-anomalias.md
+A7,2025-10-14,2025-10-14,0,2,*,evento_documentado,sinalizar,Apagão nacional às 00h32 por incêndio na SE Bateias (PR): SE 4.800 MW; NE 1.900; S 1.600; N 1.600; recomposição em até 2h30. Rastro horário pequeno (madrugada),Agência Brasil 14/10/2025; ONS
+E1,2022-11-24,2022-11-24,16,17,*,evento_documentado,sinalizar,Copa 2022: Brasil x Sérvia 16h; carga -14 a -15% na hora do jogo (SE),docs/07-anomalias.md
+E2,2022-11-28,2022-11-28,13,14,*,evento_documentado,sinalizar,Copa 2022: Brasil x Suíça 13h; carga -16 a -24% conforme subsistema,docs/07-anomalias.md
+E3,2022-12-02,2022-12-02,16,17,*,evento_documentado,sinalizar,Copa 2022: Brasil x Camarões 16h; carga -9 a -10% (SE),docs/07-anomalias.md
+E4,2022-12-05,2022-12-05,16,17,*,evento_documentado,sinalizar,Copa 2022: Brasil x Coreia 16h; carga -9 a -11% (SE),docs/07-anomalias.md
+E5,2022-12-09,2022-12-09,12,14,*,evento_documentado,sinalizar,Copa 2022: Brasil x Croácia 12h; carga -13 a -16% (SE),docs/07-anomalias.md
+E6,2026-06-13,2026-06-13,19,20,*,evento_documentado,sinalizar,Copa 2026: Brasil x Marrocos 19h (sábado),olympics.com; soccerway
+E7,2026-06-19,2026-06-19,21,22,*,evento_documentado,sinalizar,Copa 2026: Brasil x Haiti 22h; carga -10 a -12% às 21-22h (SE),olympics.com; soccerway
+E8,2026-06-24,2026-06-24,19,20,*,evento_documentado,sinalizar,Copa 2026: Brasil x Escócia 19h; carga -13 a -15% (SE),olympics.com; soccerway
+E9,2026-06-29,2026-06-29,14,16,*,evento_documentado,sinalizar,Copa 2026: 32 avos 14h (segunda-feira); carga -19 a -22% (SE),olympics.com; soccerway
+E10,2026-07-05,2026-07-05,17,19,*,evento_documentado,sinalizar,Copa 2026: oitavas 17h (domingo); carga -15 a -18% (SE),olympics.com; soccerway
+C1,2023-11-13,2023-11-17,,,SE,clima_documentado,sinalizar,Onda de calor: SE +20 a +24% vs semana anterior em 13-14/11; 61.217 MWmed às 14h de 14/11 (recorde do SE até fev/2025),Imprensa/ONS nov 2023
+C2,2025-02-21,2025-02-26,,,*,clima_documentado,sinalizar,Onda de calor: sequência de recordes de demanda instantânea do SIN; 106.532 MW às 14h27 de 26/02 (horária 106.149 MWmed),MME/ONS fev 2025
+C3,2020-03-12,2020-03-15,,,S,clima_hipotese,sinalizar,Sul +17 a +23% vs mesmo tipo de dia; imediatamente antes do isolamento social,docs/07-anomalias.md
+C4,2022-01-16,2022-01-23,,,S,clima_hipotese,sinalizar,Sul +16 a +22% vs mesmo tipo de dia (verão),docs/07-anomalias.md
+C5,2023-12-14,2023-12-18,,,S,clima_hipotese,sinalizar,Sul +16 a +24% vs mesmo tipo de dia,docs/07-anomalias.md
+C6,2024-11-09,2024-11-09,,,S,clima_hipotese,sinalizar,Sábado com perfil de domingo de inverno (-20%; carga diurna de 7.6 GW contra 13-14 GW no sábado anterior); ONS sem ocorrências; provável frente fria,docs/07-anomalias.md
+C7,2026-05-03,2026-05-10,,,S,clima_hipotese,sinalizar,Dois domingos -20% de dia e rampa noturna acentuada; provável frio,docs/07-anomalias.md
+K1,2019-03-04,2019-03-05,,,*,calendario,excluir,Carnaval 2019 (segunda e terça): NE -16/-18%; SE -16%; não marcado como feriado na dim_datas,docs/07-anomalias.md
+K2,2023-02-20,2023-02-20,,,*,calendario,excluir,Segunda-feira de Carnaval 2023: S -19%; a dim_datas marca só a terça,docs/07-anomalias.md
+K3,2026-02-16,2026-02-17,,,*,calendario,excluir,Carnaval 2026 (segunda e terça); não marcado na dim_datas,docs/07-anomalias.md
+K4,2026-09-07,2026-09-07,,,*,calendario,excluir,Independência do Brasil (segunda-feira): S -24%; SE -19%; SIN -17%; a dim_datas marca 07/07 em 2024-2026,docs/07-anomalias.md
+K5,2019-12-24,2019-12-24,,,*,calendario,excluir,Véspera de Natal em dia útil: S -19%,docs/07-anomalias.md
+K6,2019-12-31,2019-12-31,,,*,calendario,excluir,Véspera de Ano-Novo em dia útil,docs/07-anomalias.md
+K7,2020-12-24,2020-12-24,,,*,calendario,excluir,Véspera de Natal em dia útil: S -17%; SE -16%,docs/07-anomalias.md
+K8,2020-12-31,2020-12-31,,,*,calendario,excluir,Véspera de Ano-Novo em dia útil: S -20%,docs/07-anomalias.md
+K9,2021-12-24,2021-12-24,,,*,calendario,excluir,Véspera de Natal em dia útil: S -21%,docs/07-anomalias.md
+K10,2021-12-31,2021-12-31,,,*,calendario,excluir,Véspera de Ano-Novo em dia útil: S -24%; SE -16%,docs/07-anomalias.md
+K11,2024-12-24,2024-12-24,,,*,calendario,excluir,Véspera de Natal em dia útil: S -16%,docs/07-anomalias.md
+K12,2024-12-31,2024-12-31,,,*,calendario,excluir,Véspera de Ano-Novo em dia útil: S -18%; SE -17%,docs/07-anomalias.md
+K13,2025-12-24,2025-12-24,,,*,calendario,excluir,Véspera de Natal em dia útil: N com perfil atípico,docs/07-anomalias.md
+K14,2025-12-31,2025-12-31,,,*,calendario,excluir,Véspera de Ano-Novo em dia útil: S -17%,docs/07-anomalias.md
