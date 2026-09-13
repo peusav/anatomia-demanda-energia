@@ -41,7 +41,7 @@ Três cuidados que valem para qualquer número deste projeto:
 - [x] Camada conceitual e metodológica documentada
 - [x] Anomalias e eventos investigados contra fontes externas (`data/reference/anomalias.csv`)
 - [x] Dimensão de datas revisada: feriados calculados, pontos facultativos, vésperas e regime metodológico
-- [ ] Análise exploratória 2019–2026 — bloco 2 (nível) concluído: [docs/eda/02-nivel.md](docs/eda/02-nivel.md)
+- [ ] Análise exploratória 2019–2026 — concluídos: [2 nível](docs/eda/02-nivel.md), [3 sazonalidade](docs/eda/03-sazonalidade.md)
 - [ ] Modelo e dashboard em Power BI
 - [ ] Principais achados
 
