@@ -76,6 +76,8 @@ Registro curto das decisões que não são dedutíveis do código. Formato: cont
 
 ## Pendentes (a decidir na exploração)
 
+- Ampliar a série para 2017–2018, para ter mais de um ano pré-pandemia como referência de formato? Decidir após o bloco 8; implicaria tratar cada janela de horário de verão (A8).
+
 - ~~Tratamento dos saltos hora a hora~~ → resolvido em D10.
 - Confirmar a normalização principal (D05).
 - Se a dimensão de hora entra como tabela própria (0–23, rótulo, período do dia) — o regime metodológico já está na `dim_datas`.

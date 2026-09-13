@@ -9,7 +9,7 @@ Regras que valem para toda análise e todo visual do projeto. Cada seção diz o
 **Verificação nossa** ([05-qualidade.md](05-qualidade.md)):
 
 - cada linha é a carga média (MWmed) de um subsistema durante uma hora cheia, identificada pelo instante de início (`2025-03-10 15:00:00` = 15h00–15h59);
-- a série está em **hora padrão de Brasília, sem horário de verão**: todos os dias têm 24 registros, inclusive 17/02/2019, último fim de horário de verão no país;
+- os carimbos de hora seguem a **hora oficial de Brasília** em todos os subsistemas — inclusive Norte e Nordeste, que nunca adotaram horário de verão. Como o último horário de verão terminou em 17/02/2019, os dias de **01/01 a 16/02/2019** estão em UTC−2 e o restante da série em UTC−3: nesse trecho as horas aparecem deslocadas +1h (verificado pelo horário da rampa noturna do NE, que "muda" de 18h→19h para 17h→18h na semana da transição). O ONS publicou 24 registros também no dia da transição, então a irregularidade não aparece na contagem de horas. Tratamento: esses 47 dias ficam fora de qualquer análise horária (A8 em `anomalias.csv`); médias diárias e mensais não são afetadas;
 - a média dos 24 valores horários coincide (erro ~1e-12) com a Carga de Energia Diária do ONS para todos os anos completos. **A curva horária e a base diária são a mesma série**, portanto a metodologia documentada para a diária vale integralmente para a horária.
 
 **Leitura para a persona:** "quanta potência, em média, o sistema precisou entregar a essa parte do país durante essa hora".
@@ -58,6 +58,7 @@ A data exata do primeiro marco aparece no Boletim Diário da Operação do ONS: 
 - Curvas típicas são calculadas **por tipo de dia** (dia útil, sábado, domingo, feriado) e nunca misturam os quatro numa média única.
 - Feriados nacionais contam como "feriado" mesmo caindo em fim de semana; Carnaval (segunda e terça) e Corpus Christi contam como feriado; Quarta-feira de Cinzas é dia útil.
 - Vésperas de Natal e de Ano-Novo (`dim_datas[Vespera]`) ficam fora das curvas típicas de dia útil: caem 16–24% e se comportam como sábado.
+- 01/01–16/02/2019 (horário de verão) fica fora das curvas horárias (ver §1).
 - Ao comparar meses entre anos, lembrar que Carnaval e Páscoa mudam de data e que a quantidade de fins de semana varia.
 - 2020 não entra na definição de "típico" para o histórico; é analisado à parte.
 - Dias sinalizados como anômalos pelo diagnóstico de qualidade (saltos hora a hora) são investigados antes de entrar em curva típica; a decisão de excluir ou manter é registrada em [06-decisoes.md](06-decisoes.md).

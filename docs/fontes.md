@@ -48,4 +48,5 @@ Toda fonte consultada, com o que foi extraído dela. Onde a informação é defi
 - ~~Composição dos subsistemas por UF~~ → resolvida pelo Boletim de 15/08/2023. Falta apenas confirmar a data em que Roraima passou a operar interligado ao SIN.
 - Boletins diários do ONS de 2020 não estão disponíveis no endereço atual (404); a oscilação horária do Norte em abril/2020 (A2) segue sem explicação oficial.
 - Nota técnica do ONS sobre a estimativa de MMGD (citada como disponível no SINtegre, portal de acesso restrito).
-- Confirmação documental de que a série é publicada em hora padrão sem horário de verão (verificado empiricamente; não encontrado em texto oficial).
+- Confirmação documental da convenção de hora do ONS (verificado empiricamente que os carimbos seguem a hora oficial de Brasília, com UTC−2 durante o horário de verão até 16/02/2019; não encontrado em texto oficial).
+- Decisão pendente após o bloco 8: ampliar a série para 2017–2018 (exigiria a mesma regra para cada janela de horário de verão).

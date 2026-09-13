@@ -331,8 +331,8 @@ def build_report(skip_daily: bool) -> str:
         "Distribuição de registros por (subsistema, dia): "
         + ", ".join(f"{n} horas → {c} dias" for n, c in sorted(hours_dist.items())) + ".",
         "",
-        ("Nenhum dia irregular. A série é publicada em hora padrão, sem ajuste de horário de verão "
-         "(o fim do horário de verão em 17/02/2019 não gerou dia de 25 horas)."
+        ("Nenhum dia irregular. Atenção: a contagem não revela o horário de verão — os carimbos seguem a hora "
+         "oficial de Brasília, e 01/01–16/02/2019 está em UTC−2 (ver docs/03-metodologia.md §1 e A8 em anomalias.csv)."
          if not irregular_days else
          "Dias irregulares: " + "; ".join(f"{s} {d} ({n}h)" for d, s, n in irregular_days[:20])),
         "",

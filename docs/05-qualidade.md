@@ -1,6 +1,6 @@
 # Diagnóstico de qualidade — Curva de Carga Horária
 
-> Gerado automaticamente por `src/quality_check.py` em 13/09/2026 17:27. Não edite à mão; rode o script novamente após uma nova extração.
+> Gerado automaticamente por `src/quality_check.py` em 13/09/2026 20:52. Não edite à mão; rode o script novamente após uma nova extração.
 
 ## Resumo
 
@@ -41,7 +41,7 @@
 
 Distribuição de registros por (subsistema, dia): 24 horas → 11244 dias.
 
-Nenhum dia irregular. A série é publicada em hora padrão, sem ajuste de horário de verão (o fim do horário de verão em 17/02/2019 não gerou dia de 25 horas).
+Nenhum dia irregular. Atenção: a contagem não revela o horário de verão — os carimbos seguem a hora oficial de Brasília, e 01/01–16/02/2019 está em UTC−2 (ver docs/03-metodologia.md §1 e A8 em anomalias.csv).
 
 ## 4. Faixas de valor (MWmed)
 
@@ -107,15 +107,4 @@ Média diária do SIN (soma dos quatro subsistemas) nos dias vizinhos a cada mud
 
 ## 8. Reconciliação com a Carga de Energia Diária (ONS)
 
-A base diária do ONS deve ser igual à média das 24 horas da curva horária. Diferenças acima da tolerância indicam **revisão posterior** de um dos arquivos pelo ONS (processo de consistência recorrente), e não erro de agregação.
-
-| Ano | Linhas na diária | Dias comparados | Dias com dif. > 0.50% | Maior diferença |
-|---|---|---|---|---|
-| 2019 | 1460 | 1460 | 0 | 0.00% em N 2019-04-27 (diária 5320 × horária 5320) |
-| 2020 | 1464 | 1464 | 0 | 0.00% em N 2020-04-11 (diária 4864 × horária 4864) |
-| 2021 | 1460 | 1460 | 0 | 0.00% em N 2021-01-24 (diária 5375 × horária 5375) |
-| 2022 | 1460 | 1460 | 0 | 0.00% em N 2022-01-22 (diária 5745 × horária 5745) |
-| 2023 | 1460 | 1460 | 0 | 0.00% em N 2023-04-23 (diária 6393 × horária 6393) |
-| 2024 | 1464 | 1464 | 0 | 0.00% em N 2024-03-22 (diária 7337 × horária 7337) |
-| 2025 | 1460 | 1460 | 0 | 0.00% em N 2025-02-02 (diária 7130 × horária 7130) |
-| 2026 | 1016 | 1016 | 0 | 0.00% em S 2026-04-18 (diária 13285 × horária 13285) |
+_Pulado (`--sem-diaria`)._

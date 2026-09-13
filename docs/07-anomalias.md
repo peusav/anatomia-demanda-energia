@@ -13,6 +13,7 @@ Classificações possíveis: **evento real documentado** · **evento real não d
 | A3 | N | 08/11/2024, 23h | Queda de 1,5 GW por uma hora, retorno imediato | **Provável artefato de dado** — ONS não registra ocorrência | Manter; irrelevante em agregações |
 | A4 | NE | 22/12/2021, 14h | Pico isolado de +3,2 GW em uma hora, sem rastro nas vizinhas | **Provável artefato de dado** — ONS não registra ocorrência | Manter; irrelevante em agregações |
 | A5 | S | 7 domingos (2020–2026), 17h–18h | Salto de +25 a +29% entre 17h e 18h | **Falso positivo** — rampa noturna normal de domingo de inverno | Nada a fazer; refinar o limiar do diagnóstico |
+| A8 | todos | 01/01–16/02/2019 | Horas deslocadas +1h (hora oficial de Brasília em UTC−2) | **Convenção horária** — horário de verão | Excluir das curvas horárias; médias diárias intactas |
 
 ## A1 — Apagão de 15 de agosto de 2023
 
@@ -61,6 +62,14 @@ A causa (abertura da LT 500 kV Quixadá–Fortaleza II às 08h31 e desempenho ab
 **Interpretação nossa.** É a rampa noturna normal do Sul: a tarde de domingo é o ponto mais baixo da semana, e o pico da noite (iluminação, chuveiro elétrico, aquecimento no inverno) tem o mesmo nível de qualquer dia. A razão pico/vale é a maior da semana justamente no domingo, e o limiar fixo de 25% captura os domingos mais frios. Não há anomalia; há um padrão — e um achado para a Camada 2 do produto (domingo no Sul tem a rampa mais íngreme do país).
 
 **Tratamento.** Nenhum. O diagnóstico de qualidade passou a comparar cada salto com o mesmo horário do mesmo dia da semana nas quatro semanas vizinhas; com isso, cinco dos sete domingos deixam de ser sinalizados. Os dois restantes (10/08/2025 e 10/05/2026) só aparecem porque os domingos vizinhos foram mais amenos (rampa habitual de +15%) — mesmo padrão, intensidade maior, provavelmente frio. Continuam classificados como falso positivo.
+
+## A8 — Horário de verão em janeiro–fevereiro de 2019
+
+**Dados.** Nenhum dia tem 23 ou 25 registros, o que levou à conclusão inicial de que a série estava em hora padrão. O teste correto é outro: comparar o horário da rampa noturna antes e depois de 17/02/2019, último fim de horário de verão. No Nordeste — que **não** adotava horário de verão — o salto de ~1,5 GW da noite acontece entre 18h e 19h nos sábados 09/02 e 16/02 e entre 17h e 18h em 23/02. O comportamento não mudou; o rótulo mudou.
+
+**Interpretação.** O ONS carimba todos os subsistemas na hora oficial de Brasília, que era UTC−2 até 16/02/2019 e UTC−3 desde então. Os 47 dias de 01/01 a 16/02/2019 têm as horas deslocadas +1h em relação ao restante da série, nos quatro subsistemas. No dia da transição o ONS publicou 24 valores, então não há hora duplicada visível.
+
+**Tratamento.** `excluir` de curvas horárias, hora do pico e do vale. Médias diárias, mensais e anuais não são afetadas (somar 24 horas dá o mesmo resultado). Se a série for ampliada para antes de 2019, cada janela de horário de verão (outubro–fevereiro) precisará da mesma regra. Contexto: o horário de verão foi extinto pelo Decreto 9.772/2019 porque o pico do SIN deixou de ser no início da noite, o que o bloco 8 da exploração documenta.
 
 ## Composição dos subsistemas confirmada
 
@@ -149,8 +158,8 @@ O Sul responde à temperatura com amplitude que nenhum outro subsistema tem: dez
 | `data_inicio`, `data_fim` | Intervalo de datas (inclusive) |
 | `hora_inicio`, `hora_fim` | Intervalo de horas (inclusive), vazio = dia inteiro |
 | `id_subsistema` | `N`, `NE`, `S`, `SE` ou `*` (todos) |
-| `tipo` | `evento_documentado`, `clima_documentado`, `clima_hipotese`, `artefato_provavel`, `nao_explicado` |
+| `tipo` | `evento_documentado`, `clima_documentado`, `clima_hipotese`, `artefato_provavel`, `nao_explicado`, `convencao_horaria` |
 | `tratamento` | `excluir` = fora das curvas típicas e dos extremos; `sinalizar` = entra nos cálculos, com anotação disponível |
 | `descricao`, `referencia` | Texto e fonte |
 
-23 linhas em 13/09/2026: 4 `excluir`, 19 `sinalizar`. Efeitos de calendário (feriados, pontos facultativos, vésperas) não ficam aqui — estão na `dim_datas`. A tabela é mantida à mão; toda linha nova precisa de uma entrada neste documento e, quando houver, em [fontes.md](fontes.md).
+24 linhas em 13/09/2026: 5 `excluir`, 19 `sinalizar`. Efeitos de calendário (feriados, pontos facultativos, vésperas) não ficam aqui — estão na `dim_datas`. A tabela é mantida à mão; toda linha nova precisa de uma entrada neste documento e, quando houver, em [fontes.md](fontes.md).
