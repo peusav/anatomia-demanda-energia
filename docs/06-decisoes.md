@@ -56,8 +56,14 @@ Registro curto das decisões que não são dedutíveis do código. Formato: cont
 **Decisão.** Versionar `data/raw/*.parquet` (≈3,7 MB), o manifest e o consolidado (≈2,8 MB).
 **Consequência.** Qualquer pessoa reproduz exatamente a análise da data de extração, mesmo que o ONS revise os arquivos.
 
+## D10 — Tratamento das anomalias horárias (13/09/2026)
+
+**Contexto.** O diagnóstico sinalizou 25 saltos hora a hora acima de 25%. Investigação em [07-anomalias.md](07-anomalias.md).
+**Decisão.** 15/08/2023 (apagão nacional, documentado pelo ONS) sai de todas as curvas típicas e recebe anotação nos gráficos históricos. Abril/2020 no Norte fica sinalizado como "não explicado" (já excluído das típicas por D04). Os pontos isolados de 22/12/2021 (NE) e 08/11/2024 (N) são mantidos como prováveis artefatos. Os domingos do Sul são comportamento normal e não recebem tratamento.
+**Consequência.** Uma tabela `anomalias` (data, subsistema, classificação) entra no modelo para excluir/anotar; o `quality_check.py` passa a comparar saltos com o mesmo horário de semanas vizinhas.
+
 ## Pendentes (a decidir na exploração)
 
-- Tratamento dos dias com saltos hora a hora no Norte (abril/2020, agosto/2023) e nos domingos do Sul: manter, excluir das curvas típicas ou sinalizar.
+- ~~Tratamento dos saltos hora a hora~~ → resolvido em D10.
 - Confirmar a normalização principal (D05).
 - Se a dimensão de hora e o regime metodológico entram como colunas no consolidado ou como colunas calculadas no Power BI.

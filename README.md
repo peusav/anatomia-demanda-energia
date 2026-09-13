@@ -30,6 +30,7 @@ Três cuidados que valem para qualquer número deste projeto:
 | [docs/04-dados.md](docs/04-dados.md) | Pipeline, dicionário da fato, transformações, rastreabilidade |
 | [docs/05-qualidade.md](docs/05-qualidade.md) | Diagnóstico de qualidade gerado pelo script (cobertura, gaps, anomalias, reconciliação) |
 | [docs/06-decisoes.md](docs/06-decisoes.md) | Decisões analíticas e pendências |
+| [docs/07-anomalias.md](docs/07-anomalias.md) | Cada anomalia sinalizada: dados, fontes externas, classificação e tratamento |
 | [docs/fontes.md](docs/fontes.md) | Todas as fontes, com URL, instituição e data de acesso |
 
 ## Estado atual
@@ -37,6 +38,7 @@ Três cuidados que valem para qualquer número deste projeto:
 - [x] Extração e consolidação reproduzíveis, com manifest e hash
 - [x] Diagnóstico de qualidade (269.856 registros, sem gaps, sem nulos, reconciliado com a base diária do ONS)
 - [x] Camada conceitual e metodológica documentada
+- [x] Anomalias investigadas contra fontes oficiais do ONS
 - [ ] Análise exploratória 2019–2026
 - [ ] Modelo e dashboard em Power BI
 - [ ] Principais achados

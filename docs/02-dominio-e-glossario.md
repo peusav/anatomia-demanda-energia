@@ -12,7 +12,7 @@ Conceitos necessários para ler o produto, na acepção usada neste projeto. Ond
 
 Divisão **elétrica** do SIN usada pelo ONS para operar e planejar o sistema. São quatro: Norte (N), Nordeste (NE), Sul (S) e Sudeste/Centro-Oeste (SE).
 
-**Subsistema não é região do IBGE.** A divisão segue a topologia da rede, não a divisão político-administrativa. Fontes secundárias indicam, por exemplo, que o Maranhão pertence ao subsistema Norte e que Acre e Rondônia pertencem ao Sudeste/Centro-Oeste. A composição exata por UF ainda **não foi confirmada em fonte oficial** neste projeto (ver [fontes.md](fontes.md)); até lá, nenhum cruzamento com população ou território deve ser feito.
+**Subsistema não é região do IBGE.** A divisão segue a topologia da rede, não a divisão político-administrativa. O Boletim Diário da Operação do ONS de 15/08/2023 (fonte oficial, ver [07-anomalias.md](07-anomalias.md)) lista os estados de cada submercado: o **Maranhão** pertence ao subsistema **Norte** (com Amapá, Amazonas, Pará e Tocantins), e **Acre e Rondônia** pertencem ao **Sudeste/Centro-Oeste**. Roraima operava isolado do SIN em 2023. Qualquer cruzamento com população ou território precisa usar essa composição, não a regional do IBGE.
 
 Na base, o código `SE` teve o nome grafado como `SUDESTE` até 2025 e `SUDESTE/CENTRO-OESTE` a partir de 2026 (o dicionário de dados v1.2 explica a troca). O projeto usa o código como chave e o rótulo "Sudeste/Centro-Oeste" sempre.
 

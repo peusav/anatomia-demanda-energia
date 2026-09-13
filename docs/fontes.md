@@ -12,6 +12,9 @@ Toda fonte consultada, com o que foi extraído dela. Onde a informação é defi
 | Dicionário de Dados — Carga de Energia Diária | https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/carga_energia_di/DicionarioDados_Carga_Energia_Diaria.pdf | PDF | 16/08/2021 | 13/09/2026 | Colunas da base diária (`val_cargaenergiamwmed`) |
 | O que é o SIN | https://www.ons.org.br/paginas/sobre-o-sin/o-que-e-o-sin | Página institucional | — | 13/09/2026 | Definição do SIN e dos quatro subsistemas |
 | Boletim Diário da Operação, 01/08/2023 | https://sdro.ons.org.br/SDRO/DIARIO/2023_08_01/index.htm | Boletim | 01/08/2023 | 13/09/2026 | Data exata do marco de carga global (02/03/2021) e da MMGD (29/04/2023) |
+| Boletim Diário da Operação, 15/08/2023 — Principais Ocorrências no SIN | https://sdro.ons.org.br/SDRO/DIARIO/2023_08_15/HTML/18_PrincipaisOcorrenciasSIN.html | Boletim | 15/08/2023 | 13/09/2026 | Apagão de 15/08/2023: cargas interrompidas por submercado; **composição dos subsistemas por estado** |
+| Ocorrência no SIN em 15 de agosto de 2023 | https://www.ons.org.br/Paginas/Noticias/Ocorr%C3%AAncia-no-SIN-em-15-de-agosto-de-2023.aspx | Notícia institucional | 08/2023 | 13/09/2026 | Causa do apagão (LT Quixadá–Fortaleza II) |
+| Boletins Diários da Operação de 22/12/2021, 08/11/2024 e 09/11/2024 | https://sdro.ons.org.br/SDRO/DIARIO/{AAAA_MM_DD}/HTML/18_PrincipaisOcorrenciasSIN.html | Boletim | — | 13/09/2026 | "Sem ocorrências significativas" nas datas dos picos isolados A3 e A4 |
 | Roteiro — Carga Atendida por MMGD (ciclo 2024–2028) | https://www.ons.org.br/SCPCB/Paginas/cicloestudos/2024-2028/Roteiro_Carga_Atendida_por_MMGD.pdf | PDF | — | 13/09/2026 | Insumos da estimativa de MMGD (ANEEL, INPE, ONS) |
 | Programa de dados abertos da AWS — ONS | https://registry.opendata.aws/ons-opendata-portal/ | Registro | — | 13/09/2026 | Origem dos arquivos no S3 |
 
@@ -27,10 +30,13 @@ Toda fonte consultada, com o que foi extraído dela. Onde a informação é defi
 
 | Título | URL | Acesso | O que indica | Status |
 |---|---|---|---|---|
-| Sistema Interligado Nacional — Wikipédia | https://pt.wikipedia.org/wiki/Sistema_Interligado_Nacional | 13/09/2026 | Composição dos subsistemas por UF: Maranhão no Norte; Acre e Rondônia no Sudeste/Centro-Oeste | **Pendente de confirmação oficial** antes de qualquer uso |
+| Sistema Interligado Nacional — Wikipédia | https://pt.wikipedia.org/wiki/Sistema_Interligado_Nacional | 13/09/2026 | Composição dos subsistemas por UF | Confirmada pelo Boletim ONS de 15/08/2023 (acima) |
+| CMSE avalia impactos da pandemia — MME | http://www.mme.gov.br/todas-as-noticias/-/asset_publisher/pdAS9IcdBICN/content/cmse-avalia-impactos-da-pandemia-do-covid-19-no-setor-eletrico-brasileiro | 13/09/2026 | Queda de ~10% da carga do SIN entre 18/03 e 10/04/2020 | Contexto para A2 (fonte governamental) |
+| AM tem a maior queda no consumo de energia no Norte — A Crítica | https://www.acritica.com/manaus/am-tem-a-maior-queda-no-consumo-de-energia-no-norte-durante-isolamento-social-1.43416 | 13/09/2026 | Amazonas com a maior queda do Norte no isolamento | Contexto para A2 (imprensa) |
 
 ## Pendências de pesquisa
 
-- Fonte oficial para a composição dos subsistemas por UF (candidatas: Anuário EPE; Mapas do SIN no site do ONS).
+- ~~Composição dos subsistemas por UF~~ → resolvida pelo Boletim de 15/08/2023. Falta apenas confirmar a data em que Roraima passou a operar interligado ao SIN.
+- Boletins diários do ONS de 2020 não estão disponíveis no endereço atual (404); a oscilação horária do Norte em abril/2020 (A2) segue sem explicação oficial.
 - Nota técnica do ONS sobre a estimativa de MMGD (citada como disponível no SINtegre, portal de acesso restrito).
 - Confirmação documental de que a série é publicada em hora padrão sem horário de verão (verificado empiricamente; não encontrado em texto oficial).
