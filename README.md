@@ -32,6 +32,7 @@ Três cuidados que valem para qualquer número deste projeto:
 | [docs/06-decisoes.md](docs/06-decisoes.md) | Decisões analíticas e pendências |
 | [docs/07-anomalias.md](docs/07-anomalias.md) | Cada anomalia sinalizada: dados, fontes externas, classificação e tratamento |
 | [docs/fontes.md](docs/fontes.md) | Todas as fontes, com URL, instituição e data de acesso |
+| [docs/eda/](docs/eda/) | Análise exploratória por bloco, com gráficos gerados por `src/eda/` |
 
 ## Estado atual
 
@@ -40,7 +41,7 @@ Três cuidados que valem para qualquer número deste projeto:
 - [x] Camada conceitual e metodológica documentada
 - [x] Anomalias e eventos investigados contra fontes externas (`data/reference/anomalias.csv`)
 - [x] Dimensão de datas revisada: feriados calculados, pontos facultativos, vésperas e regime metodológico
-- [ ] Análise exploratória 2019–2026
+- [ ] Análise exploratória 2019–2026 — bloco 2 (nível) concluído: [docs/eda/02-nivel.md](docs/eda/02-nivel.md)
 - [ ] Modelo e dashboard em Power BI
 - [ ] Principais achados
 
@@ -56,7 +57,8 @@ Três cuidados que valem para qualquer número deste projeto:
 ├── src/
 │   ├── extract_ons.py   # baixa a curva de carga horária do ONS
 │   ├── consolidate.py   # une os anos em um único parquet
-│   └── quality_check.py # gera docs/05-qualidade.md
+│   ├── quality_check.py # gera docs/05-qualidade.md
+│   └── eda/             # scripts da análise exploratória, um por bloco
 └── requirements.txt
 ```
 
