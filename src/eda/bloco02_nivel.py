@@ -29,7 +29,7 @@ def main() -> None:
     estilo()
     serie = carregar_fato()
     dim = carregar_dim()
-    excluidas = horas_excluidas(carregar_anomalias())
+    excluidas = horas_excluidas(carregar_anomalias(), escopo="diario")
     ultimo = max(serie["SIN"]).date()
     corte = (ultimo.month, ultimo.day)
 

@@ -88,11 +88,19 @@ def carregar_anomalias() -> list[dict]:
         return list(csv.DictReader(f))
 
 
-def horas_excluidas(anomalias: list[dict]) -> set[tuple[str, datetime]]:
-    """Conjunto (subsistema, instante) com tratamento 'excluir'; '*' expande para os quatro."""
+def horas_excluidas(anomalias: list[dict], escopo: str = "horario") -> set[tuple[str, datetime]]:
+    """
+    Conjunto (subsistema, instante) com tratamento 'excluir'; '*' expande para os quatro.
+
+    escopo="horario": tudo que tem tratamento 'excluir' (curvas horárias, hora do pico).
+    escopo="diario": ignora o tipo 'convencao_horaria' (horário de verão), que desloca
+    rótulos de hora mas não altera médias diárias.
+    """
     out = set()
     for a in anomalias:
         if a["tratamento"] != "excluir":
+            continue
+        if escopo == "diario" and a["tipo"] == "convencao_horaria":
             continue
         subs = SUBSISTEMAS if a["id_subsistema"] == "*" else [a["id_subsistema"]]
         d0 = date.fromisoformat(a["data_inicio"])
