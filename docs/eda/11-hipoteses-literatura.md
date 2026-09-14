@@ -21,7 +21,18 @@ Referências completas em [../fontes.md](../fontes.md).
 
 **O que não dá para separar.** O mesmo período tem a expansão da MMGD (que reduz o meio-dia e, por normalização, "sobe" a noite) e o calor de 2024–2025. A migração ao ACL é uma terceira força na mesma direção — e a única das três que age *só* sobre a noite de dias úteis. Um teste possível: se H5 é relevante, o ganho da noite deve ser maior em dias úteis do que em fins de semana (tarifa de ponta não vale em sábados e domingos) e maior no SE/S (onde está a maior parte dos consumidores do grupo A) do que no N.
 
-**Para o produto.** A frase "a noite cresce" tem pelo menos três causas plausíveis; o texto do dashboard não deve atribuir a uma só.
+**Teste (14/09/2026).** Ganho da noite (18–21h ÷ média do dia) entre o YTD de 2024 e o de 2026, em pontos percentuais:
+
+| Subsistema | Dia útil | Sábado | Domingo | Noite em MW, dia útil | Noite em MW, domingo |
+|---|---|---|---|---|---|
+| Sudeste/Centro-Oeste | +3,3 | +2,7 | +2,6 | +2,5% | +2,5% |
+| Sul | +3,8 | +1,7 | +3,8 | +9,0% | +5,8% |
+| Nordeste | +3,6 | +3,5 | +4,2 | +7,9% | +8,4% |
+| Norte | +1,1 | +0,3 | +1,4 | +12,7% | +14,1% |
+
+**Resultado: H5 não se sustenta como causa principal.** Se a perda do sinal tarifário de ponta fosse o motor, o ganho da noite seria concentrado nos dias úteis (a tarifa de ponta não vale no fim de semana). Não é: o domingo ganha tanto quanto o dia útil (SE 2,6 contra 3,3; S e NE iguais ou maiores), e em MW absolutos a noite de domingo cresce tanto quanto a de dia útil. O meio do dia também cai igual nos dois tipos de dia (NE: −5,4 no dia útil, −5,8 no domingo). A rotação do dia é um fenômeno de todos os dias da semana — o que aponta para MMGD (que não tem calendário) e para carga residencial de noite (climatização), não para o consumidor do grupo A migrando ao mercado livre. A migração pode existir e contribuir na margem, mas não é visível na escala do subsistema. O ligeiro excesso do dia útil no SE (+0,7 p.p.) é o máximo que se pode atribuir a ela.
+
+**Para o produto.** "A noite cresce" tem duas causas visíveis (MMGD e residencial/climatização) e uma terceira apenas plausível (mercado livre); o texto do dashboard pode citar as duas primeiras com segurança.
 
 ## H6 — Calor mais renda: a climatização está reescrevendo o verão
 
@@ -77,7 +88,7 @@ Referências completas em [../fontes.md](../fontes.md).
 
 ## Síntese: o que a literatura acrescentou
 
-1. Uma terceira causa para a noite crescer (mercado livre), além de MMGD e clima — e um teste para separá-la (dias úteis × fins de semana).
+1. Uma terceira causa candidata para a noite crescer (mercado livre) — testada com dias úteis × fins de semana e **descartada como causa principal**: a rotação do dia acontece igualmente no domingo.
 2. A confirmação oficial de que 2024 foi um ano de calor e renda, e de que residencial e comercial lideram — o que fecha a leitura dos blocos 2, 3 e 6.
 3. A pista de que Norte e Nordeste crescem pela baixa tensão — a primeira demanda concreta por dados da EPE.
 4. Uma premissa (Roraima em fev/2026) que os dados não confirmam.
