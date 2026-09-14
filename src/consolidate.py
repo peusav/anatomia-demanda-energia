@@ -86,6 +86,10 @@ def unify_tables(tables: list[pa.Table]) -> list[pa.Table]:
             column = table.column(name)
             if column.type != target_type:
                 index = table.schema.get_field_index(name)
+                if column.type == pa.string():
+                    # Strings vazias (ex.: hora inexistente no início do horário
+                    # de verão, 2017 e 2018) viram nulo, não erro de conversão.
+                    column = pc.if_else(pc.equal(column, ""), pa.scalar(None, pa.string()), column)
                 table = table.set_column(index, name, pc.cast(column, target_type))
         normalized.append(table)
 

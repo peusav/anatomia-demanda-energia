@@ -12,7 +12,7 @@ import requests
 # CONFIGURAÇÃO
 # ============================================================
 
-START_YEAR = 2019
+START_YEAR = 2017
 END_YEAR = 2026
 
 BASE_URL = (

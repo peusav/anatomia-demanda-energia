@@ -160,6 +160,8 @@ def check_values(rows: list[dict]) -> tuple[dict, str]:
     values = [r["val_cargaenergiahomwmed"] for r in rows]
     summary = {
         "nulos": sum(v is None for v in values),
+        "onde_nulos": ", ".join(f"{r['id_subsistema']} {r['din_instante']:%Y-%m-%d %Hh}" for r in rows if r["val_cargaenergiahomwmed"] is None)[:300],
+        "onde_zeros": ", ".join(f"{r['id_subsistema']} {r['din_instante']:%Y-%m-%d %Hh}" for r in rows if r["val_cargaenergiahomwmed"] == 0)[:300],
         "negativos": sum(v is not None and v < 0 for v in values),
         "zeros": sum(v == 0 for v in values),
     }
@@ -188,7 +190,7 @@ def check_jumps(rows: list[dict]) -> str:
         flagged = []
         for a, b in zip(ts, ts[1:]):
             va, vb = series[a], series[b]
-            if not va:
+            if not va or vb is None:
                 continue
             change = vb / va - 1
             if abs(change) <= JUMP_THRESHOLD:
@@ -197,7 +199,7 @@ def check_jumps(rows: list[dict]) -> str:
             for weeks in (-2, -1, 1, 2):
                 ra = a + timedelta(weeks=weeks)
                 rb = b + timedelta(weeks=weeks)
-                if ra in series and rb in series and series[ra]:
+                if ra in series and rb in series and series[ra] and series[rb] is not None:
                     reference.append(series[rb] / series[ra] - 1)
             typical = sorted(reference)[len(reference) // 2] if reference else 0.0
             if abs(change - typical) > JUMP_EXCESS:
@@ -231,7 +233,8 @@ def check_break_signals(rows: list[dict]) -> str:
     """Média diária do SIN nos dias em torno de cada marco metodológico."""
     daily = defaultdict(float)
     for r in rows:
-        daily[r["din_instante"].date()] += r["val_cargaenergiahomwmed"] / 24
+        if r["val_cargaenergiahomwmed"] is not None:
+            daily[r["din_instante"].date()] += r["val_cargaenergiahomwmed"] / 24
 
     blocks = []
     for break_date, label in METHOD_BREAKS:
@@ -248,7 +251,8 @@ def check_daily_reconciliation(rows: list[dict], years: list[int]) -> str:
     """Compara a média das 24 horas com o valor da base diária do ONS."""
     hourly = defaultdict(list)
     for r in rows:
-        hourly[(r["id_subsistema"], r["din_instante"].date())].append(r["val_cargaenergiahomwmed"])
+        if r["val_cargaenergiahomwmed"] is not None:
+            hourly[(r["id_subsistema"], r["din_instante"].date())].append(r["val_cargaenergiahomwmed"])
 
     table = []
     for y in years:
@@ -341,6 +345,11 @@ def build_report(skip_daily: bool) -> str:
         value_table,
         "",
         f"Duplicidades: {n_dups}" + (f" — exemplos: {dup_sample}" if dup_sample else ""),
+        "",
+        (f"Nulos em: {value_summary['onde_nulos']}. " if value_summary["onde_nulos"] else "") +
+        (f"Zeros em: {value_summary['onde_zeros']}. " if value_summary["onde_zeros"] else "") +
+        ("Nulos e zeros nas horas 0 de 15/10/2017 e 04/11/2018 correspondem à hora inexistente do início do "
+         "horário de verão — ver A8/A9 em `anomalias.csv`." if value_summary["onde_nulos"] else ""),
         "",
         "## 5. Saltos hora a hora",
         "",
