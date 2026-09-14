@@ -57,7 +57,7 @@ A data exata do primeiro marco aparece no Boletim Diário da Operação do ONS: 
 
 - Curvas típicas são calculadas **por tipo de dia** (dia útil, sábado, domingo, feriado) e nunca misturam os quatro numa média única.
 - Feriados nacionais contam como "feriado" mesmo caindo em fim de semana; Carnaval (segunda e terça) e Corpus Christi contam como feriado; Quarta-feira de Cinzas é dia útil.
-- Vésperas de Natal e de Ano-Novo (`dim_datas[Vespera]`) ficam fora das curvas típicas de dia útil: caem 16–24% e se comportam como sábado.
+- Os dias úteis do recesso de fim de ano (`dim_datas[Recesso]`, 24/12 a 02/01) ficam fora das curvas típicas de dia útil: caem 5–23% e se comportam como sábado (vésperas de 24/12 e 31/12 são o caso extremo).
 - As janelas de horário de verão (2017–2019) ficam fora das curvas horárias (ver §1).
 - Ao comparar meses entre anos, lembrar que Carnaval e Páscoa mudam de data e que a quantidade de fins de semana varia.
 - 2020 não entra na definição de "típico" para o histórico; é analisado à parte.

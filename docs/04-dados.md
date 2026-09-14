@@ -26,12 +26,12 @@ powerbi/ (PBIP)  ← fato_curva_carga + dim_datas
 | Dia da semana | `DiaSemanaNumero` (1 = segunda … 7 = domingo), `DiaSemana`, `DiaSemanaAbrev`, `FimDeSemana` | — |
 | Feriados | `Feriado` (Sim/Não), `NomeFeriado` | Feriados nacionais por lei; Consciência Negra a partir de 2024; Paixão de Cristo pela Páscoa |
 | Pontos facultativos | `PontoFacultativo` | Carnaval (segunda e terça), Quarta-feira de Cinzas, Corpus Christi |
-| Vésperas | `Vespera` | `Natal` (24/12), `Ano-Novo` (31/12), `-` |
+| Vésperas e recesso | `Vespera`, `Recesso` | `Vespera`: `Natal` (24/12), `Ano-Novo` (31/12), `-`. `Recesso`: Sim de 24/12 a 02/01 |
 | Tipo de dia | `TipoDia` (Dia útil / Sábado / Domingo / Feriado), `DiaUtil` | Carnaval e Corpus Christi contam como `Feriado`; Quarta-feira de Cinzas é dia útil |
 | Estação | `EstacaoAno`, `AnoBissexto` | Datas fixas do hemisfério sul |
 | Metodologia | `RegimeMetodologico` | `Supervisão ONS` até 01/03/2021; `Carga global` até 28/04/2023; `Carga global + MMGD` depois |
 
-Curvas típicas devem segmentar por `TipoDia` e, para dias úteis, excluir `Vespera <> "-"` (24/12 e 31/12 se comportam como sábado — ver [07-anomalias.md](07-anomalias.md)).
+Curvas típicas devem segmentar por `TipoDia` e, para dias úteis, excluir `Recesso = "Sim"` (24/12 a 02/01 se comportam como sábado — ver [07-anomalias.md](07-anomalias.md)).
 
 ## Fonte
 
