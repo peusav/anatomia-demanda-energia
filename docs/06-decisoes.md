@@ -74,9 +74,15 @@ Registro curto das decisões que não são dedutíveis do código. Formato: cont
 **Decisão.** O gerador passa a calcular feriados nacionais e móveis a partir da data (Páscoa pelo algoritmo de Meeus), usa ISO 8601 para semana, e acrescenta `PontoFacultativo`, `Vespera`, `DiaUtil` e `RegimeMetodologico`. A planilha fornece apenas a lista de datas.
 **Consequência.** Efeitos de calendário saem da tabela de anomalias; curvas típicas usam `TipoDia` e `Vespera`; o regime metodológico vem da dimensão, não de medida.
 
+## D13 — Normalização pela média do dia confirmada (13/09/2026)
+
+**Contexto.** D05 era preliminar; o bloco 7 comparou as três candidatas sobre as mesmas curvas.
+**Decisão.** Normalização principal = carga(h) ÷ média do dia. Pelo pico fica como medida complementar; min-max descartada (apaga a amplitude).
+**Consequência.** Todas as curvas normalizadas do produto usam a mesma definição; a leitura é "% acima/abaixo da média do dia".
+
 ## Pendentes (a decidir na exploração)
 
-- Ampliar a série para 2017–2018, para ter mais de um ano pré-pandemia como referência de formato? Decidir após o bloco 8; implicaria tratar cada janela de horário de verão (A8).
+- **Ampliar a série para 2017–2018.** O bloco 8 recomenda: a virada de formato entre 2019 e 2021 é grande demais para repousar num único ano pré-pandemia. Implica tratar cada janela de horário de verão (A8). Aguarda decisão do autor.
 
 - ~~Tratamento dos saltos hora a hora~~ → resolvido em D10.
 - Confirmar a normalização principal (D05).
