@@ -17,6 +17,8 @@ powerbi/ (PBIP)  ← fato_curva_carga + dim_datas
 
 `data/reference/anomalias.csv` é a tabela de anomalias, eventos e datas de calendário que afetam curvas típicas e extremos, mantida à mão a partir de [07-anomalias.md](07-anomalias.md) (dicionário das colunas lá).
 
+`data/reference/mmgd_por_subsistema.csv` é a potência de micro e minigeração distribuída acumulada por subsistema e ano, agregada do cadastro aberto da ANEEL (4,6 milhões de unidades; 105 MB, não versionado) por `src/eda/bloco10_hipoteses.py` — a agregação em si foi feita uma vez, em 13/09/2026, e o CSV resultante (44 linhas) é o que se versiona.
+
 `data/consolidated/dim_datas.parquet` é a dimensão de calendário (2017–2026), versionada, gerada por `build_dim_datas.py` a partir do intervalo de anos; todos os campos são calculados a partir da data:
 
 | Grupo | Colunas | Convenção |

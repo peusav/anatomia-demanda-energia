@@ -30,6 +30,13 @@ Toda fonte consultada, com o que foi extraído dela. Onde a informação é defi
 | Consumo Mensal de Energia Elétrica por Classe | https://www.epe.gov.br/pt/publicacoes-dados-abertos/publicacoes/consumo-de-energia-eletrica | Página | pendente | Camada territorial (consumo por UF/região/classe) |
 | Anuário Estatístico de Energia Elétrica | https://www.epe.gov.br/pt/publicacoes-dados-abertos/publicacoes/anuario-estatistico-de-energia-eletrica | Página | pendente | Mapeamento subsistema × UF; consumo per capita |
 
+## ANEEL
+
+| Título | URL | Tipo | Atualização | Acesso | Uso |
+|---|---|---|---|---|---|
+| Relação de empreendimentos de Mini e Micro Geração Distribuída — ANEEL Dados Abertos | https://dadosabertos.aneel.gov.br/dataset/relacao-de-empreendimentos-de-geracao-distribuida | Dataset (parquet, 4,6 mi linhas) | 13/09/2026 | 13/09/2026 | Potência de MMGD acumulada por subsistema e ano (H1, bloco 10); agregado em `data/reference/mmgd_por_subsistema.csv` |
+| Demanda Máxima Diária por Subsistema — ONS Dados Abertos | https://dados.ons.org.br/dataset/demanda_maxima_di | Dataset | — | 13/09/2026 | Localizado, não usado: demanda instantânea máxima diária, útil para validar picos horários |
+
 ## Outras fontes (eventos sociais e climáticos)
 
 | Título | URL | Acesso | Uso |
