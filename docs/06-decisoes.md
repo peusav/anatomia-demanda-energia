@@ -94,7 +94,4 @@ Registro curto das decisões que não são dedutíveis do código. Formato: cont
 
 ## Pendentes
 
-
-- ~~Tratamento dos saltos hora a hora~~ → resolvido em D10.
-- Confirmar a normalização principal (D05).
-- ~~Dimensão de hora~~ → D15.
+- Nenhuma pendência analítica aberta. Histórico: saltos hora a hora → D10; normalização → D13; dimensão de hora e camada EPE → D15.
