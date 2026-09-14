@@ -2,7 +2,7 @@
 
 > Gerado por `src/eda/bloco04_intradiario.py` sobre a extração de 11/09/2026. Tabelas e gráficos são reproduzíveis; a interpretação ao final é do analista e está datada.
 
-Pergunta do bloco: **como a carga se distribui pelas 24 horas** — o "dia típico" de cada subsistema — e como esse formato muda entre tipos de dia e estações. Janela: núcleo comparável 2024–2025. Dias com horas excluídas em `anomalias.csv` (escopo horário) e vésperas de Natal/Ano-Novo ficam fora. "Dia típico" é a média, hora a hora, de todos os dias do tipo; a versão normalizada divide cada dia pela sua própria média antes de tirar a média, para que cada dia pese igual.
+Pergunta do bloco: **como a carga se distribui pelas 24 horas** — o "dia típico" de cada subsistema — e como esse formato muda entre tipos de dia e estações. Janela: núcleo comparável 2024–2025. Dias com horas excluídas em `anomalias.csv` (escopo horário) e dias úteis do recesso de fim de ano (24/12–02/01) ficam fora. "Dia típico" é a média, hora a hora, de todos os dias do tipo; a versão normalizada divide cada dia pela sua própria média antes de tirar a média, para que cada dia pese igual.
 
 ## 1. O dia típico por tipo de dia
 
@@ -10,23 +10,23 @@ Pergunta do bloco: **como a carga se distribui pelas 24 horas** — o "dia típi
 
 | Subsistema | Tipo de dia | Dias | Média (GW) | Pico (GW) | Hora | Vale (GW) | Hora | Amplitude ÷ média | Fator de carga |
 |---|---|---|---|---|---|---|---|---|---|
-| SIN | Dia útil | 499 | 82.1 | 90.9 | 19h | 68.8 | 4h | 27% | 0.90 |
+| SIN | Dia útil | 491 | 82.2 | 91.0 | 19h | 68.8 | 4h | 27% | 0.90 |
 | SIN | Sábado | 100 | 75.8 | 85.9 | 19h | 68.3 | 5h | 23% | 0.88 |
 | SIN | Domingo | 100 | 70.1 | 82.1 | 19h | 62.6 | 6h | 28% | 0.85 |
 | SIN | Feriado | 26 | 73.2 | 83.8 | 19h | 65.6 | 6h | 25% | 0.87 |
-| Sudeste/Centro-Oeste | Dia útil | 501 | 45.9 | 51.6 | 19h | 37.4 | 3h | 31% | 0.89 |
+| Sudeste/Centro-Oeste | Dia útil | 493 | 46.0 | 51.6 | 19h | 37.4 | 3h | 31% | 0.89 |
 | Sudeste/Centro-Oeste | Sábado | 100 | 42.5 | 48.8 | 19h | 37.5 | 4h | 27% | 0.87 |
 | Sudeste/Centro-Oeste | Domingo | 100 | 39.2 | 46.3 | 19h | 34.6 | 6h | 30% | 0.85 |
 | Sudeste/Centro-Oeste | Feriado | 26 | 40.7 | 47.3 | 19h | 36.0 | 6h | 28% | 0.86 |
-| Sul | Dia útil | 501 | 14.5 | 16.7 | 19h | 10.9 | 3h | 40% | 0.87 |
+| Sul | Dia útil | 493 | 14.5 | 16.7 | 19h | 10.9 | 3h | 40% | 0.87 |
 | Sul | Sábado | 100 | 12.6 | 14.8 | 19h | 10.8 | 4h | 32% | 0.85 |
 | Sul | Domingo | 100 | 11.3 | 14.1 | 19h | 9.4 | 5h | 42% | 0.80 |
 | Sul | Feriado | 26 | 12.4 | 14.7 | 19h | 10.5 | 5h | 34% | 0.84 |
-| Nordeste | Dia útil | 500 | 13.5 | 14.6 | 21h | 12.1 | 6h | 19% | 0.92 |
+| Nordeste | Dia útil | 492 | 13.5 | 14.6 | 21h | 12.1 | 6h | 19% | 0.92 |
 | Nordeste | Sábado | 100 | 12.8 | 14.3 | 18h | 11.8 | 6h | 20% | 0.90 |
 | Nordeste | Domingo | 100 | 12.1 | 13.8 | 22h | 10.6 | 9h | 26% | 0.88 |
 | Nordeste | Feriado | 26 | 12.4 | 14.1 | 22h | 11.1 | 13h | 24% | 0.88 |
-| Norte | Dia útil | 500 | 8.2 | 8.8 | 14h | 7.4 | 6h | 17% | 0.94 |
+| Norte | Dia útil | 492 | 8.2 | 8.8 | 14h | 7.4 | 6h | 17% | 0.94 |
 | Norte | Sábado | 100 | 7.9 | 8.4 | 0h | 7.3 | 7h | 14% | 0.94 |
 | Norte | Domingo | 100 | 7.6 | 8.3 | 23h | 7.0 | 9h | 18% | 0.91 |
 | Norte | Feriado | 26 | 7.7 | 8.3 | 22h | 7.1 | 9h | 15% | 0.92 |
@@ -42,7 +42,7 @@ Pergunta do bloco: **como a carga se distribui pelas 24 horas** — o "dia típi
 | 9h | +3% | +3% | +8% | -1% | -2% |
 | 12h | +4% | +6% | +4% | -2% | +0% |
 | 15h | +8% | +9% | +11% | +4% | +7% |
-| 18h | +10% | +11% | +13% | +7% | -1% |
+| 18h | +10% | +12% | +14% | +7% | -1% |
 | 19h | +11% | +13% | +16% | +6% | +1% |
 | 21h | +8% | +9% | +9% | +8% | +5% |
 | 23h | -1% | -3% | -6% | +5% | +5% |
@@ -55,23 +55,23 @@ Pergunta do bloco: **como a carga se distribui pelas 24 horas** — o "dia típi
 
 | Subsistema | Estação (dia útil) | Hora do pico | Hora do vale | Amplitude ÷ média | Fator de carga | Pico à tarde | Pico à noite |
 |---|---|---|---|---|---|---|---|
-| SIN | Verão | 14h | 4h | 25% | 0.91 | 82% | 18% |
+| SIN | Verão | 14h | 4h | 25% | 0.91 | 88% | 12% |
 | SIN | Outono | 18h | 3h | 29% | 0.89 | 27% | 72% |
 | SIN | Inverno | 18h | 3h | 32% | 0.87 | 5% | 95% |
 | SIN | Primavera | 19h | 4h | 27% | 0.90 | 38% | 58% |
-| Sudeste/Centro-Oeste | Verão | 14h | 4h | 27% | 0.90 | 75% | 22% |
+| Sudeste/Centro-Oeste | Verão | 14h | 4h | 28% | 0.90 | 80% | 16% |
 | Sudeste/Centro-Oeste | Outono | 18h | 3h | 33% | 0.88 | 17% | 78% |
 | Sudeste/Centro-Oeste | Inverno | 18h | 3h | 37% | 0.85 | 4% | 95% |
 | Sudeste/Centro-Oeste | Primavera | 19h | 3h | 31% | 0.89 | 24% | 64% |
-| Sul | Verão | 14h | 4h | 37% | 0.87 | 77% | 14% |
+| Sul | Verão | 14h | 4h | 37% | 0.87 | 83% | 8% |
 | Sul | Outono | 18h | 3h | 43% | 0.85 | 21% | 70% |
 | Sul | Inverno | 19h | 3h | 50% | 0.82 | 2% | 93% |
 | Sul | Primavera | 19h | 3h | 40% | 0.87 | 31% | 46% |
-| Nordeste | Verão | 22h | 6h | 20% | 0.92 | 6% | 90% |
+| Nordeste | Verão | 22h | 6h | 20% | 0.92 | 6% | 89% |
 | Nordeste | Outono | 21h | 6h | 18% | 0.93 | 8% | 91% |
 | Nordeste | Inverno | 18h | 6h | 18% | 0.91 | 1% | 99% |
 | Nordeste | Primavera | 22h | 6h | 20% | 0.92 | 6% | 94% |
-| Norte | Verão | 22h | 7h | 15% | 0.94 | 37% | 50% |
+| Norte | Verão | 22h | 7h | 15% | 0.94 | 40% | 47% |
 | Norte | Outono | 15h | 6h | 18% | 0.93 | 87% | 12% |
 | Norte | Inverno | 14h | 6h | 18% | 0.93 | 81% | 18% |
 | Norte | Primavera | 14h | 6h | 18% | 0.94 | 67% | 29% |

@@ -45,8 +45,8 @@ def perfis_diarios(serie, dim, excluidas, s):
 
 def tipo_dia(dim, d: date) -> str | None:
     r = dim[d]
-    if r["TipoDia"] == "Dia útil" and r["Vespera"] != "-":
-        return None  # véspera fica fora de qualquer curva típica
+    if r["TipoDia"] == "Dia útil" and r["Recesso"] == "Sim":
+        return None  # recesso de fim de ano (24/12–02/01) fica fora de qualquer curva típica
     return r["TipoDia"]
 
 
@@ -212,7 +212,7 @@ def main() -> None:
 
 > Gerado por `src/eda/bloco04_intradiario.py` sobre a extração de {ultimo:%d/%m/%Y}. Tabelas e gráficos são reproduzíveis; a interpretação ao final é do analista e está datada.
 
-Pergunta do bloco: **como a carga se distribui pelas 24 horas** — o "dia típico" de cada subsistema — e como esse formato muda entre tipos de dia e estações. Janela: núcleo comparável 2024–2025. Dias com horas excluídas em `anomalias.csv` (escopo horário) e vésperas de Natal/Ano-Novo ficam fora. "Dia típico" é a média, hora a hora, de todos os dias do tipo; a versão normalizada divide cada dia pela sua própria média antes de tirar a média, para que cada dia pese igual.
+Pergunta do bloco: **como a carga se distribui pelas 24 horas** — o "dia típico" de cada subsistema — e como esse formato muda entre tipos de dia e estações. Janela: núcleo comparável 2024–2025. Dias com horas excluídas em `anomalias.csv` (escopo horário) e dias úteis do recesso de fim de ano (24/12–02/01) ficam fora. "Dia típico" é a média, hora a hora, de todos os dias do tipo; a versão normalizada divide cada dia pela sua própria média antes de tirar a média, para que cada dia pese igual.
 
 ## 1. O dia típico por tipo de dia
 

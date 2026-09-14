@@ -12,17 +12,17 @@ Desvio médio hora a hora entre as curvas típicas normalizadas de dia útil (em
 
 |  | Sudeste | Sul | Nordeste | Norte |
 |---|---|---|---|---|
-| Sudeste | — | 3.9 | 7.2 | 8.7 |
-| Sul | 3.9 | — | 10.8 | 12.3 |
-| Nordeste | 7.2 | 10.8 | — | 3.0 |
-| Norte | 8.7 | 12.3 | 3.0 | — |
+| Sudeste | — | 4.0 | 7.2 | 8.7 |
+| Sul | 4.0 | — | 10.9 | 12.4 |
+| Nordeste | 7.2 | 10.9 | — | 3.0 |
+| Norte | 8.7 | 12.4 | 3.0 | — |
 
 Cada subsistema em relação ao SIN:
 
 | Subsistema | Escala (÷ SIN) | Distância de formato para o SIN | Hora do pico (dia útil) | Amplitude ÷ média |
 |---|---|---|---|---|
 | Sudeste/Centro-Oeste | 56% | 1.5 | 19h vs 19h | 31% vs 27% |
-| Sul | 17% | 5.1 | 19h vs 19h | 40% vs 27% |
+| Sul | 17% | 5.2 | 19h vs 19h | 41% vs 27% |
 | Nordeste | 17% | 5.8 | 21h vs 19h | 19% vs 27% |
 | Norte | 10% | 7.3 | 14h vs 19h | 17% vs 27% |
 
@@ -54,19 +54,19 @@ Cada subsistema em relação ao SIN:
 
 | Subsistema | Estação (dia útil) | Amplitude mediana | Fator de carga | Hora do pico mais frequente | Pico mediano (GW) | Vale mediano (GW) |
 |---|---|---|---|---|---|---|
-| SIN | Verão | 25% | 0.91 | 14h (53% dos dias) | 96.2 | 73.6 |
+| SIN | Verão | 25% | 0.91 | 14h (57% dos dias) | 96.8 | 73.9 |
 | SIN | Outono | 30% | 0.89 | 18h (66% dos dias) | 90.7 | 66.8 |
 | SIN | Inverno | 33% | 0.87 | 18h (68% dos dias) | 89.9 | 63.9 |
 | SIN | Primavera | 28% | 0.90 | 19h (54% dos dias) | 92.9 | 70.3 |
-| Sudeste/Centro-Oeste | Verão | 28% | 0.90 | 14h (52% dos dias) | 55.0 | 41.1 |
+| Sudeste/Centro-Oeste | Verão | 28% | 0.90 | 14h (55% dos dias) | 55.2 | 41.4 |
 | Sudeste/Centro-Oeste | Outono | 34% | 0.87 | 18h (69% dos dias) | 51.5 | 36.2 |
 | Sudeste/Centro-Oeste | Inverno | 38% | 0.85 | 18h (79% dos dias) | 50.6 | 34.2 |
 | Sudeste/Centro-Oeste | Primavera | 32% | 0.89 | 19h (62% dos dias) | 52.3 | 37.6 |
-| Sul | Verão | 38% | 0.86 | 14h (63% dos dias) | 18.5 | 12.5 |
+| Sul | Verão | 38% | 0.86 | 14h (67% dos dias) | 18.6 | 12.6 |
 | Sul | Outono | 45% | 0.84 | 18h (60% dos dias) | 16.6 | 10.2 |
 | Sul | Inverno | 50% | 0.81 | 18h (48% dos dias) | 16.8 | 9.9 |
 | Sul | Primavera | 42% | 0.85 | 19h (40% dos dias) | 16.9 | 10.8 |
-| Nordeste | Verão | 20% | 0.92 | 22h (58% dos dias) | 14.9 | 12.1 |
+| Nordeste | Verão | 20% | 0.92 | 22h (55% dos dias) | 14.9 | 12.1 |
 | Nordeste | Outono | 19% | 0.93 | 21h (46% dos dias) | 14.6 | 12.1 |
 | Nordeste | Inverno | 19% | 0.91 | 18h (73% dos dias) | 14.1 | 11.7 |
 | Nordeste | Primavera | 21% | 0.92 | 22h (44% dos dias) | 15.4 | 12.5 |
@@ -81,11 +81,11 @@ Cada subsistema em relação ao SIN:
 
 | Subsistema | Correlação nível × amplitude | Amplitude nos 25 dias mais pesados | Amplitude nos 25 dias mais leves |
 |---|---|---|---|
-| SIN | -0.71 | 25% | 35% |
-| Sudeste/Centro-Oeste | -0.75 | 28% | 41% |
-| Sul | -0.58 | 37% | 51% |
+| SIN | -0.72 | 25% | 36% |
+| Sudeste/Centro-Oeste | -0.76 | 28% | 42% |
+| Sul | -0.61 | 37% | 51% |
 | Nordeste | +0.04 | 19% | 20% |
-| Norte | +0.21 | 18% | 17% |
+| Norte | +0.20 | 18% | 17% |
 
 ## Leitura (analista, 13/09/2026)
 
