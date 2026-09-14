@@ -9,7 +9,7 @@ ONS Dados Abertos (S3, um parquet por ano)
 data/raw/CURVA_CARGA_{ano}.parquet          ← cópia fiel do ONS, versionada
         │  src/consolidate.py — unifica tipos entre anos e concatena
         ▼
-data/consolidated/CURVA_CARGA_2019_2026.parquet   ← fato (versionada)
+data/consolidated/CURVA_CARGA_2017_2026.parquet   ← fato (versionada)
         │  src/quality_check.py — gera docs/05-qualidade.md
         ▼
 powerbi/ (PBIP)  ← fato_curva_carga + dim_datas
@@ -17,7 +17,7 @@ powerbi/ (PBIP)  ← fato_curva_carga + dim_datas
 
 `data/reference/anomalias.csv` é a tabela de anomalias, eventos e datas de calendário que afetam curvas típicas e extremos, mantida à mão a partir de [07-anomalias.md](07-anomalias.md) (dicionário das colunas lá).
 
-`data/consolidated/dim_datas.parquet` é a dimensão de calendário (2019–2026), versionada. Todos os campos são calculados a partir da data:
+`data/consolidated/dim_datas.parquet` é a dimensão de calendário (2017–2026), versionada, gerada por `build_dim_datas.py` a partir do intervalo de anos; todos os campos são calculados a partir da data:
 
 | Grupo | Colunas | Convenção |
 |---|---|---|
@@ -45,22 +45,22 @@ Curvas típicas devem segmentar por `TipoDia` e, para dias úteis, excluir `Vesp
 | Licença | CC-BY (atribuição ao ONS; informar alterações) |
 | Dicionário oficial | [PDF](https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/curva-carga-ho/DicionarioDados_CurvaCarga.pdf) · [JSON](https://ons-aws-prod-opendata.s3.amazonaws.com/dataset/curva-carga-ho/DicionarioDados_CurvaCarga.json) — v1.2, 06/04/2026 |
 
-## Dicionário da fato `CURVA_CARGA_2019_2026.parquet`
+## Dicionário da fato `CURVA_CARGA_2017_2026.parquet`
 
 | Coluna | Tipo | Descrição oficial (ONS) | Observações nossas |
 |---|---|---|---|
 | `id_subsistema` | string | Código do Subsistema | `N`, `NE`, `S`, `SE`. **Chave** para subsistema |
 | `nom_subsistema` | string | Nome do Subsistema | `NORTE`, `NORDESTE`, `SUL`, `SUDESTE` (até 2025) / `SUDESTE/CENTRO-OESTE` (2026+). Não usar como chave |
 | `din_instante` | timestamp | Data de referência | Início da hora, hora padrão de Brasília, sem horário de verão. Um registro por hora cheia |
-| `val_cargaenergiahomwmed` | double | Valor da Carga de Energia, em MWmed | Potência média demandada na hora. Numericamente igual à energia da hora em MWh. Nulo/negativo não permitidos, zero permitido (dicionário) |
+| `val_cargaenergiahomwmed` | double | Valor da Carga de Energia, em MWmed | Potência média demandada na hora. Numericamente igual à energia da hora em MWh. O dicionário não permite nulo, mas a hora inexistente do início do horário de verão (15/10/2017, 04/11/2018) vem vazia e é gravada como nulo (7 registros) |
 
-Volume: 269.856 linhas (4 subsistemas × 67.464 horas) de 01/01/2019 00h a 11/09/2026 23h na extração de 13/09/2026. O número atualizado está sempre em [05-qualidade.md](05-qualidade.md).
+Volume: 339.936 linhas (4 subsistemas × 84.984 horas) de 01/01/2017 00h a 11/09/2026 23h na extração de 13/09/2026. O número atualizado está sempre em [05-qualidade.md](05-qualidade.md).
 
 ## Transformações aplicadas
 
 Apenas uma, em `consolidate.py`:
 
-- **Unificação de tipo.** `val_cargaenergiahomwmed` vem como *string* nos arquivos de 2019 a 2024 e como *double* em 2025 e 2026. O consolidado converte tudo para `float64`. Qualquer outra combinação de tipos entre anos interrompe o script com erro explícito, para que a decisão seja consciente.
+- **Unificação de tipo.** `val_cargaenergiahomwmed` vem como *string* nos arquivos de 2017 a 2024 e como *double* em 2025 e 2026. O consolidado converte tudo para `float64`; strings vazias viram nulo. Qualquer outra combinação de tipos entre anos interrompe o script com erro explícito, para que a decisão seja consciente.
 
 Nada é filtrado, agregado, renomeado ou recalculado. O consolidado é a união fiel dos arquivos do ONS.
 
@@ -90,8 +90,8 @@ O arquivo PBIP atual aponta para o caminho absoluto do consolidado na máquina d
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
-python src\extract_ons.py        # baixa data/raw
-python src\consolidate.py        # gera data/consolidated/CURVA_CARGA_2019_2026.parquet
+python src\extract_ons.py        # baixa data/raw (2017-2026)
+python src\consolidate.py        # gera data/consolidated/CURVA_CARGA_2017_2026.parquet
 python src\quality_check.py      # gera docs/05-qualidade.md (baixa a base diária para reconciliar)
 ```
 

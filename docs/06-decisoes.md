@@ -80,9 +80,14 @@ Registro curto das decisões que não são dedutíveis do código. Formato: cont
 **Decisão.** Normalização principal = carga(h) ÷ média do dia. Pelo pico fica como medida complementar; min-max descartada (apaga a amplitude).
 **Consequência.** Todas as curvas normalizadas do produto usam a mesma definição; a leitura é "% acima/abaixo da média do dia".
 
+## D14 — Série ampliada para 2017–2026 (13/09/2026)
+
+**Contexto.** O bloco 8 mostrou uma virada de formato entre 2019 e 2021 grande demais para repousar num único ano pré-pandemia, cujo verão tinha só 25 dias válidos após excluir o horário de verão.
+**Decisão.** Estender a extração para 2017 (três anos sob "Supervisão ONS": 2017, 2018, 2019). O histórico estendido passa a ser 2017–2025; o núcleo comparável (2024–2025) e a regra YTD não mudam.
+**Consequência.** Duas janelas a mais de horário de verão excluídas das curvas horárias (A8b, A8c); a hora inexistente do início do horário de verão entra como nulo no consolidado; a dimensão de datas é gerada para 2017–2026 a partir do próprio intervalo, sem depender da planilha; o consolidado passa a se chamar `CURVA_CARGA_2017_2026.parquet`.
+
 ## Pendentes (a decidir na exploração)
 
-- **Ampliar a série para 2017–2018.** O bloco 8 recomenda: a virada de formato entre 2019 e 2021 é grande demais para repousar num único ano pré-pandemia. Implica tratar cada janela de horário de verão (A8). Aguarda decisão do autor.
 
 - ~~Tratamento dos saltos hora a hora~~ → resolvido em D10.
 - Confirmar a normalização principal (D05).

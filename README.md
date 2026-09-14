@@ -2,7 +2,7 @@
 
 > Mais importante do que saber **quanto** de energia o Brasil demanda é entender **quando** essa demanda acontece, **onde** ela se concentra e **como seu formato vem mudando**.
 
-Projeto de portfólio em análise e visualização de dados, com entrega em Power BI, construído sobre a curva de carga horária do ONS (2019–2026) para os quatro subsistemas do Sistema Interligado Nacional.
+Projeto de portfólio em análise e visualização de dados, com entrega em Power BI, construído sobre a curva de carga horária do ONS (2017–2026) para os quatro subsistemas do Sistema Interligado Nacional.
 
 ## A pergunta
 
@@ -12,7 +12,7 @@ O produto não é um painel de níveis de carga. É uma leitura do *formato* da 
 
 ## Os dados em uma frase
 
-Cada linha é a **carga média em MWmed** de um **subsistema** durante **uma hora**: 4 subsistemas × 24 horas × todos os dias desde 01/01/2019. Fonte única: [Curva de Carga Horária — ONS Dados Abertos](https://dados.ons.org.br/dataset/curva-carga), licença CC-BY.
+Cada linha é a **carga média em MWmed** de um **subsistema** durante **uma hora**: 4 subsistemas × 24 horas × todos os dias desde 01/01/2017. Fonte única: [Curva de Carga Horária — ONS Dados Abertos](https://dados.ons.org.br/dataset/curva-carga), licença CC-BY.
 
 Três cuidados que valem para qualquer número deste projeto:
 
@@ -37,11 +37,11 @@ Três cuidados que valem para qualquer número deste projeto:
 ## Estado atual
 
 - [x] Extração e consolidação reproduzíveis, com manifest e hash
-- [x] Diagnóstico de qualidade (269.856 registros, sem gaps, sem nulos, reconciliado com a base diária do ONS)
+- [x] Diagnóstico de qualidade (339.936 registros, sem gaps, reconciliado com a base diária do ONS)
 - [x] Camada conceitual e metodológica documentada
 - [x] Anomalias e eventos investigados contra fontes externas (`data/reference/anomalias.csv`)
 - [x] Dimensão de datas revisada: feriados calculados, pontos facultativos, vésperas e regime metodológico
-- [ ] Análise exploratória 2019–2026 — concluídos: [2 nível](docs/eda/02-nivel.md), [3 sazonalidade](docs/eda/03-sazonalidade.md), [4 ciclo intradiário](docs/eda/04-intradiario.md), [5–6 subsistemas e amplitude](docs/eda/05-06-subsistemas-amplitude.md), [7–8 normalização e mudança histórica](docs/eda/07-08-normalizacao-mudanca.md)
+- [ ] Análise exploratória 2017–2026 — concluídos: [2 nível](docs/eda/02-nivel.md), [3 sazonalidade](docs/eda/03-sazonalidade.md), [4 ciclo intradiário](docs/eda/04-intradiario.md), [5–6 subsistemas e amplitude](docs/eda/05-06-subsistemas-amplitude.md), [7–8 normalização e mudança histórica](docs/eda/07-08-normalizacao-mudanca.md)
 - [ ] Modelo e dashboard em Power BI
 - [ ] Principais achados
 
@@ -51,7 +51,7 @@ Três cuidados que valem para qualquer número deste projeto:
 .
 ├── data/
 │   ├── raw/             # parquets do ONS, um por ano + manifest.csv (versionados)
-│   └── consolidated/    # CURVA_CARGA_2019_2026.parquet e dim_datas.parquet (versionados)
+│   └── consolidated/    # CURVA_CARGA_2017_2026.parquet e dim_datas.parquet (versionados)
 ├── docs/                # documentação conceitual e metodológica
 ├── powerbi/             # projeto Power BI (PBIP)
 ├── src/
@@ -75,7 +75,7 @@ python src\consolidate.py
 python src\quality_check.py
 ```
 
-Ao final, a fato estará em `data\consolidated\CURVA_CARGA_2019_2026.parquet` e o relatório de qualidade em `docs\05-qualidade.md`. O projeto Power BI em `powerbi\` aponta para a fato por caminho absoluto — ajuste a fonte no Power Query após clonar.
+Ao final, a fato estará em `data\consolidated\CURVA_CARGA_2017_2026.parquet` e o relatório de qualidade em `docs\05-qualidade.md`. O projeto Power BI em `powerbi\` aponta para a fato por caminho absoluto — ajuste a fonte no Power Query após clonar.
 
 <details>
 <summary>Problemas comuns</summary>

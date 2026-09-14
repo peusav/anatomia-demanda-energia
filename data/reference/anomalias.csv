@@ -5,7 +5,13 @@ A3,2024-11-08,2024-11-08,23,23,N,artefato_provavel,excluir,Queda isolada de 1.5 
 A4,2021-12-22,2021-12-22,14,14,NE,artefato_provavel,excluir,Pico isolado de +3.2 GW por uma hora; ONS registra dia sem ocorrências,Boletim Diário ONS 22/12/2021
 A6,2024-02-08,2024-02-08,10,10,NE,artefato_provavel,excluir,Pico isolado de 18.157 MWmed (7% acima de qualquer outra hora do NE na série) entre horas de 14.6 e 14.9 GW; é o falso recorde do subsistema,docs/07-anomalias.md
 A7,2025-10-14,2025-10-14,0,2,*,evento_documentado,sinalizar,Apagão nacional às 00h32 por incêndio na SE Bateias (PR): SE 4.800 MW; NE 1.900; S 1.600; N 1.600; recomposição em até 2h30. Rastro horário pequeno (madrugada),Agência Brasil 14/10/2025; ONS
-A8,2019-01-01,2019-02-16,,,*,convencao_horaria,excluir,Horário de verão: os carimbos de hora seguem a hora oficial de Brasília (UTC-2 até 16/02/2019) em todos os subsistemas; as horas ficam deslocadas +1h em relação ao restante da série. Não afeta médias diárias; afeta curvas horárias e hora do pico,docs/07-anomalias.md
+A8,2018-11-04,2019-02-16,,,*,convencao_horaria,excluir,Horário de verão 2018/19: carimbos na hora oficial de Brasília (UTC-2) em todos os subsistemas; horas deslocadas +1h. Em 04/11/2018 a hora 0 não existe (vazia). Não afeta médias diárias; afeta curvas horárias,docs/07-anomalias.md
+A8b,2017-10-15,2018-02-17,,,*,convencao_horaria,excluir,Horário de verão 2017/18: idem. Em 15/10/2017 a hora 0 não existe (vazia),docs/07-anomalias.md
+A8c,2017-01-01,2017-02-18,,,*,convencao_horaria,excluir,Horário de verão 2016/17 (fim em 19/02/2017): idem,docs/07-anomalias.md
+A9,2018-11-04,2018-11-04,0,0,S,artefato_provavel,excluir,Valor zero na hora inexistente do início do horário de verão (os outros subsistemas trazem vazio),docs/07-anomalias.md
+A10,2018-03-21,2018-03-21,15,21,*,evento_documentado,excluir,Apagão de 21/03/2018 às 15h48: abertura indevida de disjuntor na SE Xingu (bipolo Belo Monte); 18.000 MW interrompidos (22.5% do SIN); N e NE desligados por horas; 14 estados,Agência Brasil 04/2018; ONS 06/05/2018
+A11,2018-08-25,2018-08-25,,,NE,artefato_provavel,excluir,Dia inteiro com carga de 2.5 a 5.9 GW (um terço do habitual) sem evento conhecido; a base diária do ONS traz o mesmo valor. Provável falha de dado na origem,docs/07-anomalias.md
+A12,2018-10-18,2018-10-18,21,21,N,artefato_provavel,excluir,Queda isolada de 1.5 GW por uma hora (5.8 -> 4.3 -> habitual); sem evento conhecido,docs/07-anomalias.md
 E1,2022-11-24,2022-11-24,16,17,*,evento_documentado,sinalizar,Copa 2022: Brasil x Sérvia 16h; carga -14 a -15% na hora do jogo (SE),docs/07-anomalias.md
 E2,2022-11-28,2022-11-28,13,14,*,evento_documentado,sinalizar,Copa 2022: Brasil x Suíça 13h; carga -16 a -24% conforme subsistema,docs/07-anomalias.md
 E3,2022-12-02,2022-12-02,16,17,*,evento_documentado,sinalizar,Copa 2022: Brasil x Camarões 16h; carga -9 a -10% (SE),docs/07-anomalias.md

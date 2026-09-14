@@ -6,7 +6,7 @@
 
 ## O que é
 
-Projeto de portfólio em análise e visualização de dados, com entrega principal em Power BI, sobre a **carga** do sistema elétrico brasileiro — a demanda que o Sistema Interligado Nacional (SIN) precisa atender, hora a hora, em cada um dos seus quatro subsistemas.
+Projeto de portfólio em análise e visualização de dados, com entrega principal em Power BI, sobre a **carga** do sistema elétrico brasileiro, 2017–2026 — a demanda que o Sistema Interligado Nacional (SIN) precisa atender, hora a hora, em cada um dos seus quatro subsistemas.
 
 Não é um estudo do setor elétrico. É uma leitura estruturada de um único fenômeno — o formato da demanda no tempo — feita com dados públicos e oficiais do ONS.
 
@@ -63,7 +63,7 @@ Detalhes, URLs e datas de acesso em [fontes.md](fontes.md).
 
 | Janela | Período | Finalidade |
 |---|---|---|
-| Histórico estendido | 2019–2025 | Estrutura, padrões, sazonalidade, rupturas e evolução do formato — com os marcos metodológicos explicitados |
+| Histórico estendido | 2017–2025 | Estrutura, padrões, sazonalidade, rupturas e evolução do formato — com os marcos metodológicos explicitados. Três anos (2017–2019) sob a metodologia original servem de "antes" |
 | Núcleo comparável | 2024–2025 | Dois anos completos sob a metodologia atual. Referência para comparações quantitativas mais rigorosas |
 | Atual | 2026 YTD | Somente por períodos equivalentes: mesmo intervalo de datas em 2024 e 2025 |
 
@@ -73,7 +73,7 @@ Por que não uma série homogênea: a definição de "carga" mudou em 02/03/2021
 
 | Ano | Contexto |
 |---|---|
-| 2019 | Referência pré-pandemia |
+| 2017–2019 | Referência pré-pandemia, sob a metodologia original do ONS (com horário de verão até fev/2019) |
 | 2020 | Choque da COVID-19 — período extraordinário, não define "normal" |
 | 2021 | Recuperação + mudança metodológica (carga global) |
 | 2022 | Normalização |

@@ -71,6 +71,25 @@ A causa (abertura da LT 500 kV Quixadá–Fortaleza II às 08h31 e desempenho ab
 
 **Tratamento.** `excluir` de curvas horárias, hora do pico e do vale. Médias diárias, mensais e anuais não são afetadas (somar 24 horas dá o mesmo resultado). Se a série for ampliada para antes de 2019, cada janela de horário de verão (outubro–fevereiro) precisará da mesma regra. Contexto: o horário de verão foi extinto pelo Decreto 9.772/2019 porque o pico do SIN deixou de ser no início da noite, o que o bloco 8 da exploração documenta.
 
+## Parte 3 — Anos de 2017 e 2018 (ampliação da série, 13/09/2026)
+
+A série foi ampliada para 2017–2026 (decisão D14). O diagnóstico de qualidade sobre os dois anos novos trouxe:
+
+| # | Subsistema | Quando | O que se vê | Classificação | Tratamento |
+|---|---|---|---|---|---|
+| A8b, A8c | todos | 01/01–18/02/2017 e 15/10/2017–17/02/2018 | Janelas de horário de verão (mesma convenção de A8). A hora 0 de 15/10/2017 e de 04/11/2018 **não existe** nos arquivos (vazia) — confirmação direta de que os carimbos seguem a hora oficial | **Convenção horária** | Excluir das curvas horárias |
+| A9 | S | 04/11/2018, 0h | Valor **zero** na hora inexistente (os outros subsistemas trazem vazio) | Artefato | Excluir |
+| A10 | N, NE (e todos) | 21/03/2018, 15h–21h | N cai de 5,1 para 0,8 GW; NE de 10,7 para 0,7 GW às 16h; recomposição até 21h | **Evento real documentado** — apagão de 21/03/2018 | Excluir das curvas típicas |
+| A11 | NE | 25/08/2018, dia inteiro | Carga de 2,5 a 5,9 GW o dia todo (habitual: 10–12 GW); volta ao normal à 0h de 26/08 | **Provável artefato** | Excluir |
+| A12 | N | 18/10/2018, 21h | Queda isolada de 1,5 GW por uma hora | **Provável artefato** | Excluir |
+| — | S | 23 e 30/07/2017, 17/06/2018 | Rampa noturna de domingo de inverno | Falso positivo (A5) | Nada |
+
+**A10 — apagão de 21/03/2018.** Às 15h48, abertura indevida de um disjuntor na subestação Xingu (PA), no bipolo de Belo Monte, quando o fluxo era elevado a 4.000 MW; 18.000 MW interrompidos (22,5% do SIN), Norte e Nordeste desligados, 14 estados e ~70 milhões de pessoas afetados ([Agência Brasil](https://agenciabrasil.ebc.com.br/geral/noticia/2018-04/apagao-no-norte-e-nordeste-foi-causado-por-falha-humana-diz-ons); [ONS](https://www.ons.org.br/paginas/noticias/20180506-analiseocorrencianorteenordeste.aspx)). Junto com 15/08/2023 e 14/10/2025, é o terceiro apagão nacional da série — e os três aparecem na base.
+
+**A11 — Nordeste em 25/08/2018.** Não há apagão registrado nessa data (a busca por notícias devolve apenas o evento de 15/08/2023). A base diária do ONS traz o mesmo valor, então não é erro de agregação: é a mesma falha na origem. Os boletins diários do ONS de 2018 não estão mais disponíveis (404). Excluído.
+
+**Reconciliação com a base diária em 2017.** Quatro dias do SE em outubro e novembro de 2017 divergem 0,5–1,9% entre a curva horária e a base diária (por exemplo 07/10: diária 34.837, horária 34.182 MWmed). É o único ano completo em que as duas bases não coincidem exatamente — sinal de que foram revisadas em momentos diferentes. Registrado; sem tratamento (as diferenças são pequenas e 2017 é ano de contexto).
+
 ## Composição dos subsistemas confirmada
 
 O boletim de 15/08/2023 lista os estados de cada submercado:

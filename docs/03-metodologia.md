@@ -9,8 +9,8 @@ Regras que valem para toda análise e todo visual do projeto. Cada seção diz o
 **Verificação nossa** ([05-qualidade.md](05-qualidade.md)):
 
 - cada linha é a carga média (MWmed) de um subsistema durante uma hora cheia, identificada pelo instante de início (`2025-03-10 15:00:00` = 15h00–15h59);
-- os carimbos de hora seguem a **hora oficial de Brasília** em todos os subsistemas — inclusive Norte e Nordeste, que nunca adotaram horário de verão. Como o último horário de verão terminou em 17/02/2019, os dias de **01/01 a 16/02/2019** estão em UTC−2 e o restante da série em UTC−3: nesse trecho as horas aparecem deslocadas +1h (verificado pelo horário da rampa noturna do NE, que "muda" de 18h→19h para 17h→18h na semana da transição). O ONS publicou 24 registros também no dia da transição, então a irregularidade não aparece na contagem de horas. Tratamento: esses 47 dias ficam fora de qualquer análise horária (A8 em `anomalias.csv`); médias diárias e mensais não são afetadas;
-- a média dos 24 valores horários coincide (erro ~1e-12) com a Carga de Energia Diária do ONS para todos os anos completos. **A curva horária e a base diária são a mesma série**, portanto a metodologia documentada para a diária vale integralmente para a horária.
+- os carimbos de hora seguem a **hora oficial de Brasília** em todos os subsistemas — inclusive Norte e Nordeste, que nunca adotaram horário de verão. Nas janelas de horário de verão (01/01–18/02/2017; 15/10/2017–17/02/2018; 04/11/2018–16/02/2019, último do país) a série está em UTC−2 e no restante em UTC−3: nesses trechos as horas aparecem deslocadas +1h, e a hora 0 do dia de início (15/10/2017, 04/11/2018) não existe nos arquivos (verificado pelo horário da rampa noturna do NE, que "muda" de 18h→19h para 17h→18h na semana da transição). O ONS publicou 24 registros também no dia da transição, então a irregularidade não aparece na contagem de horas. Tratamento: essas janelas ficam fora de qualquer análise horária (A8, A8b, A8c em `anomalias.csv`); médias diárias e mensais não são afetadas;
+- a média dos 24 valores horários coincide (erro ~1e-12) com a Carga de Energia Diária do ONS para todos os anos completos de 2018 em diante (em 2017, quatro dias do SE divergem até 1,9% — revisões em momentos diferentes). **A curva horária e a base diária são a mesma série**, portanto a metodologia documentada para a diária vale integralmente para a horária.
 
 **Leitura para a persona:** "quanta potência, em média, o sistema precisou entregar a essa parte do país durante essa hora".
 
@@ -26,7 +26,7 @@ A data exata do primeiro marco aparece no Boletim Diário da Operação do ONS: 
 
 | Era | Vigência | O que a carga inclui | Rótulo no projeto |
 |---|---|---|---|
-| 1 | 01/01/2019 → 01/03/2021 | Geração das usinas despachadas/programadas pelo ONS (medida pela supervisão) | `Supervisão ONS` |
+| 1 | 01/01/2017 → 01/03/2021 | Geração das usinas despachadas/programadas pelo ONS (medida pela supervisão) | `Supervisão ONS` |
 | 2 | 02/03/2021 → 28/04/2023 | Era 1 **+** previsão de geração das usinas não despachadas | `Carga global` |
 | 3 | 29/04/2023 → hoje | Era 2 **+** estimativa da MMGD (a partir de previsão meteorológica) | `Carga global + MMGD` |
 
@@ -37,7 +37,7 @@ A data exata do primeiro marco aparece no Boletim Diário da Operação do ONS: 
 1. As datas 02/03/2021 e 29/04/2023 aparecem como marcos em todo gráfico histórico e a coluna/medida `RegimeMetodologico` fica disponível no modelo.
 2. Não se produz afirmação do tipo "a demanda cresceu X% entre 2019 e 2025". A forma aceitável é: "a carga registrada aumentou X% no período, que atravessa duas mudanças de metodologia".
 3. Comparações quantitativas de nível e formato usam o **núcleo comparável 2024–2025**.
-4. O histórico 2019–2023 serve para estrutura, sazonalidade e rupturas — sempre com o regime identificado.
+4. O histórico 2017–2023 serve para estrutura, sazonalidade e rupturas — sempre com o regime identificado.
 
 **Pendência:** o ONS menciona nota técnica sobre a estimativa de MMGD no portal SINtegre (acesso restrito). Não localizada em fonte aberta. O [Roteiro de Carga Atendida por MMGD](https://www.ons.org.br/SCPCB/Paginas/cicloestudos/2024-2028/Roteiro_Carga_Atendida_por_MMGD.pdf) descreve os insumos (potência instalada da ANEEL, irradiação do INPE, fator de capacidade do ONS).
 
@@ -45,7 +45,7 @@ A data exata do primeiro marco aparece no Boletim Diário da Operação do ONS: 
 
 | Janela | Uso |
 |---|---|
-| 2019–2025 | Contexto, padrões, rupturas, evolução do formato |
+| 2017–2025 | Contexto, padrões, rupturas, evolução do formato (2017–2019 sob a metodologia original) |
 | 2024–2025 | Comparações quantitativas rigorosas |
 | 2026 YTD | Somente contra o mesmo intervalo de datas dos anos anteriores |
 
@@ -58,7 +58,7 @@ A data exata do primeiro marco aparece no Boletim Diário da Operação do ONS: 
 - Curvas típicas são calculadas **por tipo de dia** (dia útil, sábado, domingo, feriado) e nunca misturam os quatro numa média única.
 - Feriados nacionais contam como "feriado" mesmo caindo em fim de semana; Carnaval (segunda e terça) e Corpus Christi contam como feriado; Quarta-feira de Cinzas é dia útil.
 - Vésperas de Natal e de Ano-Novo (`dim_datas[Vespera]`) ficam fora das curvas típicas de dia útil: caem 16–24% e se comportam como sábado.
-- 01/01–16/02/2019 (horário de verão) fica fora das curvas horárias (ver §1).
+- As janelas de horário de verão (2017–2019) ficam fora das curvas horárias (ver §1).
 - Ao comparar meses entre anos, lembrar que Carnaval e Páscoa mudam de data e que a quantidade de fins de semana varia.
 - 2020 não entra na definição de "típico" para o histórico; é analisado à parte.
 - Dias sinalizados como anômalos pelo diagnóstico de qualidade (saltos hora a hora) são investigados antes de entrar em curva típica; a decisão de excluir ou manter é registrada em [06-decisoes.md](06-decisoes.md).
