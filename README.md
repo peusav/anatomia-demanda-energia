@@ -32,6 +32,7 @@ Três cuidados que valem para qualquer número deste projeto:
 | [docs/06-decisoes.md](docs/06-decisoes.md) | Decisões analíticas e pendências |
 | [docs/07-anomalias.md](docs/07-anomalias.md) | Cada anomalia sinalizada: dados, fontes externas, classificação e tratamento |
 | [docs/fontes.md](docs/fontes.md) | Todas as fontes, com URL, instituição e data de acesso |
+| [docs/eda/00-sintese.md](docs/eda/00-sintese.md) | Os cinco padrões que estruturam o dashboard, visuais por camada e medidas necessárias |
 | [docs/eda/](docs/eda/) | Análise exploratória por bloco, com gráficos gerados por `src/eda/` |
 
 ## Estado atual
@@ -41,7 +42,7 @@ Três cuidados que valem para qualquer número deste projeto:
 - [x] Camada conceitual e metodológica documentada
 - [x] Anomalias e eventos investigados contra fontes externas (`data/reference/anomalias.csv`)
 - [x] Dimensão de datas revisada: feriados calculados, pontos facultativos, vésperas e regime metodológico
-- [ ] Análise exploratória 2017–2026 — concluídos: [2 nível](docs/eda/02-nivel.md), [3 sazonalidade](docs/eda/03-sazonalidade.md), [4 ciclo intradiário](docs/eda/04-intradiario.md), [5–6 subsistemas e amplitude](docs/eda/05-06-subsistemas-amplitude.md), [7–8 normalização e mudança histórica](docs/eda/07-08-normalizacao-mudanca.md), [10 hipóteses externas](docs/eda/10-hipoteses.md), [11 hipóteses da literatura](docs/eda/11-hipoteses-literatura.md)
+- [x] Análise exploratória 2017–2026 — [síntese](docs/eda/00-sintese.md); blocos: [2 nível](docs/eda/02-nivel.md), [3 sazonalidade](docs/eda/03-sazonalidade.md), [4 ciclo intradiário](docs/eda/04-intradiario.md), [5–6 subsistemas e amplitude](docs/eda/05-06-subsistemas-amplitude.md), [7–8 normalização e mudança histórica](docs/eda/07-08-normalizacao-mudanca.md), [10 hipóteses externas](docs/eda/10-hipoteses.md), [11 hipóteses da literatura](docs/eda/11-hipoteses-literatura.md)
 - [ ] Modelo e dashboard em Power BI
 - [ ] Principais achados
 

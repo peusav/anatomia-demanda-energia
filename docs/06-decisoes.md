@@ -86,11 +86,15 @@ Registro curto das decisões que não são dedutíveis do código. Formato: cont
 **Decisão.** Estender a extração para 2017 (três anos sob "Supervisão ONS": 2017, 2018, 2019). O histórico estendido passa a ser 2017–2025; o núcleo comparável (2024–2025) e a regra YTD não mudam.
 **Consequência.** Duas janelas a mais de horário de verão excluídas das curvas horárias (A8b, A8c); a hora inexistente do início do horário de verão entra como nulo no consolidado; a dimensão de datas é gerada para 2017–2026 a partir do próprio intervalo, sem depender da planilha; o consolidado passa a se chamar `CURVA_CARGA_2017_2026.parquet`.
 
-## Pendentes (a decidir na exploração)
+## D15 — Fechamento da exploração (14/09/2026)
 
-- Abrir a camada EPE (consumo por classe e UF) para decidir H7 (Norte e Nordeste crescem pela baixa tensão)? É o primeiro achado do ONS que pede a EPE; decidir na síntese.
+**Contexto.** Blocos 1–11 concluídos; síntese em [eda/00-sintese.md](eda/00-sintese.md).
+**Decisão.** (a) Camada EPE não entra na primeira versão — o único achado que a pede (H7) não muda nenhum visual. (b) A dimensão de hora nasce como `data/reference/dim_horas.csv`, no padrão da tabela de anomalias. (c) Eventos e anomalias entram como anotações nos gráficos históricos, não como página própria. (d) Ordem de construção: modelo e medidas → Camada 2 → Camada 3 → Camada 1 → textos.
+**Consequência.** A próxima etapa é a modelagem no Power BI; nenhuma exploração adicional é pré-requisito.
+
+## Pendentes
 
 
 - ~~Tratamento dos saltos hora a hora~~ → resolvido em D10.
 - Confirmar a normalização principal (D05).
-- Se a dimensão de hora entra como tabela própria (0–23, rótulo, período do dia) — o regime metodológico já está na `dim_datas`.
+- ~~Dimensão de hora~~ → D15.
