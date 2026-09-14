@@ -1,0 +1,5 @@
+id_subsistema,Subsistema,SubsistemaCurto,Ordem
+SE,Sudeste/Centro-Oeste,Sudeste,1
+S,Sul,Sul,2
+NE,Nordeste,Nordeste,3
+N,Norte,Norte,4

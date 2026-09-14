@@ -15,6 +15,8 @@ data/consolidated/CURVA_CARGA_2017_2026.parquet   ← fato (versionada)
 powerbi/ (PBIP)  ← fato_curva_carga + dim_datas
 ```
 
+`data/reference/dim_horas.csv` (hora 0–23, rótulo, período do dia) e `data/reference/dim_subsistemas.csv` (código, rótulo único, ordem) são as dimensões pequenas do modelo, mantidas à mão.
+
 `data/reference/anomalias.csv` é a tabela de anomalias, eventos e datas de calendário que afetam curvas típicas e extremos, mantida à mão a partir de [07-anomalias.md](07-anomalias.md) (dicionário das colunas lá).
 
 `data/reference/mmgd_por_subsistema.csv` é a potência de micro e minigeração distribuída acumulada por subsistema e ano, agregada do cadastro aberto da ANEEL (4,6 milhões de unidades; 105 MB, não versionado) por `src/eda/bloco10_hipoteses.py` — a agregação em si foi feita uma vez, em 13/09/2026, e o CSV resultante (44 linhas) é o que se versiona.
@@ -76,7 +78,9 @@ Nada é filtrado, agregado, renomeado ou recalculado. O consolidado é a união 
 |---|---|---|
 | Carga de Energia Diária (ONS) | Reconciliação da curva horária no `quality_check.py` | `data/external/carga_diaria/` (baixada sob demanda, não versionada) |
 
-## O que o modelo Power BI espera
+## Modelo Power BI
+
+Descrito em [08-modelo-powerbi.md](08-modelo-powerbi.md). Estado anterior a 14/09/2026, para referência:
 
 - `fato_curva_carga` ← consolidado, com relacionamento para `dim_datas` pela data de `din_instante`.
 - Uma pequena dimensão de hora (0–23, rótulo, período do dia, ordem) **ainda não existe** — está prevista após a exploração.
