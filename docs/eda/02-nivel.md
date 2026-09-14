@@ -12,6 +12,8 @@ Pergunta do bloco: **quanto** o sistema demanda, como isso evoluiu e onde a carg
 
 | Ano | SIN | Sudeste/Centro-Oeste | Sul | Nordeste | Norte | Regime |
 |---|---|---|---|---|---|---|
+| 2017 | 62.68 | 36.11 | 10.96 | 10.19 | 5.42 | Supervisão ONS |
+| 2018 | 63.25 | 36.49 | 11.14 | 10.33 | 5.30 | Supervisão ONS |
 | 2019 | 64.58 | 37.14 | 11.34 | 10.60 | 5.50 | Supervisão ONS |
 | 2020 | 63.41 | 36.31 | 11.29 | 10.30 | 5.52 | Supervisão ONS |
 | 2021 | 68.53 | 39.18 | 11.97 | 11.40 | 5.99 | misto |
@@ -24,6 +26,8 @@ Variação ano a ano:
 
 | Variação | SIN | Sudeste/Centro-Oeste | Sul | Nordeste | Norte |
 |---|---|---|---|---|---|
+| 2018/2017 | +0.9% | +1.0% | +1.6% | +1.4% | -2.2% |
+| 2019/2018 | +2.1% | +1.8% | +1.8% | +2.7% | +3.8% |
 | 2020/2019 | -1.8% | -2.3% | -0.4% | -2.9% | +0.3% |
 | 2021/2020 | +8.1% | +7.9% | +6.0% | +10.7% | +8.5% |
 | 2022/2021 | +0.4% | +1.3% | -1.9% | -2.0% | +3.8% |
@@ -31,6 +35,7 @@ Variação ano a ano:
 | 2024/2023 | +7.1% | +6.1% | +7.8% | +8.3% | +9.5% |
 | 2025/2024 | +0.8% | -0.5% | +1.9% | +1.1% | +6.3% |
 | **2025/2019 (atravessa 2 marcos)** | **+23.3%** | **+19.1%** | **+21.8%** | **+25.1%** | **+51.1%** |
+| **2019/2017 (mesmo regime)** | **+3.0%** | **+2.9%** | **+3.4%** | **+4.1%** | **+1.5%** |
 
 ## 3. Comparação de períodos equivalentes (YTD)
 
@@ -50,6 +55,8 @@ O último dia disponível de 2026 é 11/09. A tabela compara 1º/jan–11/09 nos
 
 | Ano | Sudeste/Centro-Oeste | Sul | Nordeste | Norte |
 |---|---|---|---|---|
+| 2017 | 57.6% | 17.5% | 16.3% | 8.6% |
+| 2018 | 57.7% | 17.6% | 16.3% | 8.4% |
 | 2019 | 57.5% | 17.6% | 16.4% | 8.5% |
 | 2020 | 57.3% | 17.8% | 16.2% | 8.7% |
 | 2021 | 57.2% | 17.5% | 16.6% | 8.7% |
@@ -64,7 +71,7 @@ O último dia disponível de 2026 é 11/09. A tabela compara 1º/jan–11/09 nos
 
 | Subsistema | Maior hora da série | Quando | Menor hora da série | Quando | Razão máx/mín |
 |---|---|---|---|---|---|
-| SIN | 106.15 GW | 26/02/2025 14h | 40.36 GW | 10/05/2020 07h | 2.63× |
+| SIN | 106.15 GW | 26/02/2025 14h | 40.17 GW | 27/05/2018 07h | 2.64× |
 | Sudeste/Centro-Oeste | 62.15 GW | 18/02/2025 14h | 21.66 GW | 10/05/2020 07h | 2.87× |
 | Sul | 22.74 GW | 11/02/2025 14h | 5.76 GW | 08/05/2022 13h | 3.95× |
 | Nordeste | 16.99 GW | 04/02/2026 22h | 7.26 GW | 07/04/2023 10h | 2.34× |
@@ -82,11 +89,11 @@ O último dia disponível de 2026 é 11/09. A tabela compara 1º/jan–11/09 nos
 | Nordeste | 11 (13.8 GW) | 07 (12.3 GW) | +12.8% |
 | Norte | 09 (8.7 GW) | 01 (7.5 GW) | +16.8% |
 
-## 7. Leitura (analista, 13/09/2026)
+## 7. Leitura (analista, 13/09/2026; revisada após a ampliação para 2017)
 
 **Quanto.** No regime atual, o SIN demanda cerca de **80 GWmed** em média — 44 no Sudeste/Centro-Oeste, 14 no Sul, 13 no Nordeste e 8 no Norte. O pico horário absoluto foi de 106 GW em 26/02/2025, numa onda de calor; a menor hora foi de 40 GW, num domingo de maio de 2020, em plena pandemia. O sistema opera, portanto, numa faixa de **2,6×** entre a hora mais leve e a mais pesada da série.
 
-**Como evoluiu — a leitura ingênua e a correta.** A carga registrada do SIN subiu **+23% entre 2019 e 2025**. Mas os três maiores saltos anuais coincidem com o que não é demanda: 2021 (+8%) mistura recuperação pós-COVID com a entrada da "carga global"; 2023 (+7%) e 2024 (+7%) são a entrada da MMGD estimada em abril/2023 e seu primeiro ano cheio. Quando se compara **sob a mesma metodologia** — 2025 contra 2024, e o YTD de 2026 contra o de 2025 — o SIN cresce **+0,8% e +1,0%**. A história defensável não é "a demanda explodiu"; é "a carga *registrada* saltou por mudanças de medição, e a demanda sob regime homogêneo cresce devagar".
+**Como evoluiu — a leitura ingênua e a correta.** A carga registrada do SIN subiu **+23% entre 2019 e 2025**. Mas os três maiores saltos anuais coincidem com o que não é demanda: 2021 (+8%) mistura recuperação pós-COVID com a entrada da "carga global"; 2023 (+7%) e 2024 (+7%) são a entrada da MMGD estimada em abril/2023 e seu primeiro ano cheio. Quando se compara **sob a mesma metodologia** — 2025 contra 2024, e o YTD de 2026 contra o de 2025 — o SIN cresce **+0,8% e +1,0%**. E o mesmo se vê no regime original: de 2017 a 2019, também sem mudança de metodologia, o SIN cresceu +3,0% em dois anos (~1,5% ao ano) — o mesmo ritmo. A história defensável não é "a demanda explodiu"; é "a carga *registrada* saltou por mudanças de medição, e a demanda sob regime homogêneo cresce devagar".
 
 **Onde — e quem cresce.** O Sudeste/Centro-Oeste concentra 56% da carga, mas perde participação todo ano (57,5% → 55,6%). No regime atual ele está **estável ou em leve queda** (−0,5% em 2025; −0,4% no YTD 2026). Quem cresce é o **Norte**: +6% ao ano em 2025 e 2026, passando de 8,5% para 10,4% do SIN — o único subsistema cujo crescimento se mantém forte *dentro* do regime homogêneo. Nordeste e Sul crescem +2 a +3% ao ano. Hipótese para o bloco 10: o que está por trás do Norte (carga industrial no Pará, expansão em Manaus, interligações novas) e se a estabilidade do SE reflete MMGD *dentro* da estimativa do ONS ou saturação real.
 

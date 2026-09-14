@@ -21,7 +21,7 @@ from comum import (COR, MARCOS, PROJECT_ROOT, ROTULO, SUBSISTEMAS, TEXTO_2, carr
                    media_diaria, salvar)
 
 DOC_PATH = PROJECT_ROOT / "docs" / "eda" / "02-nivel.md"
-ANOS_COMPLETOS = list(range(2019, 2026))
+ANOS_COMPLETOS = list(range(2017, 2026))
 TODOS = ["SIN"] + SUBSISTEMAS
 
 
@@ -58,7 +58,7 @@ def main() -> None:
         ax.xaxis.set_major_locator(mdates.YearLocator())
         ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y"))
     axes[-1].set_xlabel("2026 vai até " + ultimo.strftime("%d/%m"))
-    fig.suptitle("Carga média mensal, 2019–2026 — escalas independentes; linhas tracejadas = mudanças de metodologia do ONS",
+    fig.suptitle("Carga média mensal, 2017–2026 — escalas independentes; linhas tracejadas = mudanças de metodologia do ONS",
                  x=0.01, ha="left", fontsize=11, color=TEXTO_2)
     fig.tight_layout()
     salvar(fig, "02_media_mensal_subsistemas.png")
@@ -90,10 +90,10 @@ def main() -> None:
         ys = [100 * part[s][y] for y in ANOS_COMPLETOS]
         ax.plot(ANOS_COMPLETOS, ys, color=COR[s], marker="o", markersize=5)
         ax.text(ANOS_COMPLETOS[-1] + 0.1, ys[-1], f"{ROTULO[s]} {ys[-1]:.1f}%", color=COR[s], va="center", fontsize=9)
-    ax.set_xlim(2018.7, 2027)
+    ax.set_xlim(2016.7, 2027)
     ax.set_xticks(ANOS_COMPLETOS)
     ax.set_ylabel("% da carga do SIN")
-    ax.set_title("Participação de cada subsistema na carga anual do SIN, 2019–2025")
+    ax.set_title("Participação de cada subsistema na carga anual do SIN, 2017–2025")
     fig.tight_layout()
     salvar(fig, "02_participacao_subsistemas.png")
 
@@ -136,7 +136,8 @@ def main() -> None:
     t_var = md_table(
         ["Variação"] + [ROTULO[s] for s in TODOS],
         [[f"{y}/{y - 1}"] + [f"{anual[s][y] / anual[s][y - 1] - 1:+.1%}" for s in TODOS] for y in ANOS_COMPLETOS[1:]] +
-        [["**2025/2019 (atravessa 2 marcos)**"] + [f"**{anual[s][2025] / anual[s][2019] - 1:+.1%}**" for s in TODOS]],
+        [["**2025/2019 (atravessa 2 marcos)**"] + [f"**{anual[s][2025] / anual[s][2019] - 1:+.1%}**" for s in TODOS],
+         ["**2019/2017 (mesmo regime)**"] + [f"**{anual[s][2019] / anual[s][2017] - 1:+.1%}**" for s in TODOS]],
     )
     t_ytd = md_table(
         [f"1º/jan–{ultimo:%d/%m}"] + [ROTULO[s] for s in TODOS],
@@ -210,11 +211,11 @@ O último dia disponível de 2026 é {ultimo:%d/%m}. A tabela compara 1º/jan–
 
 {t_meses}
 
-## 7. Leitura (analista, 13/09/2026)
+## 7. Leitura (analista, 13/09/2026; revisada após a ampliação para 2017)
 
 **Quanto.** No regime atual, o SIN demanda cerca de **80 GWmed** em média — 44 no Sudeste/Centro-Oeste, 14 no Sul, 13 no Nordeste e 8 no Norte. O pico horário absoluto foi de 106 GW em 26/02/2025, numa onda de calor; a menor hora foi de 40 GW, num domingo de maio de 2020, em plena pandemia. O sistema opera, portanto, numa faixa de **2,6×** entre a hora mais leve e a mais pesada da série.
 
-**Como evoluiu — a leitura ingênua e a correta.** A carga registrada do SIN subiu **+23% entre 2019 e 2025**. Mas os três maiores saltos anuais coincidem com o que não é demanda: 2021 (+8%) mistura recuperação pós-COVID com a entrada da "carga global"; 2023 (+7%) e 2024 (+7%) são a entrada da MMGD estimada em abril/2023 e seu primeiro ano cheio. Quando se compara **sob a mesma metodologia** — 2025 contra 2024, e o YTD de 2026 contra o de 2025 — o SIN cresce **+0,8% e +1,0%**. A história defensável não é "a demanda explodiu"; é "a carga *registrada* saltou por mudanças de medição, e a demanda sob regime homogêneo cresce devagar".
+**Como evoluiu — a leitura ingênua e a correta.** A carga registrada do SIN subiu **+23% entre 2019 e 2025**. Mas os três maiores saltos anuais coincidem com o que não é demanda: 2021 (+8%) mistura recuperação pós-COVID com a entrada da "carga global"; 2023 (+7%) e 2024 (+7%) são a entrada da MMGD estimada em abril/2023 e seu primeiro ano cheio. Quando se compara **sob a mesma metodologia** — 2025 contra 2024, e o YTD de 2026 contra o de 2025 — o SIN cresce **+0,8% e +1,0%**. E o mesmo se vê no regime original: de 2017 a 2019, também sem mudança de metodologia, o SIN cresceu +3,0% em dois anos (~1,5% ao ano) — o mesmo ritmo. A história defensável não é "a demanda explodiu"; é "a carga *registrada* saltou por mudanças de medição, e a demanda sob regime homogêneo cresce devagar".
 
 **Onde — e quem cresce.** O Sudeste/Centro-Oeste concentra 56% da carga, mas perde participação todo ano (57,5% → 55,6%). No regime atual ele está **estável ou em leve queda** (−0,5% em 2025; −0,4% no YTD 2026). Quem cresce é o **Norte**: +6% ao ano em 2025 e 2026, passando de 8,5% para 10,4% do SIN — o único subsistema cujo crescimento se mantém forte *dentro* do regime homogêneo. Nordeste e Sul crescem +2 a +3% ao ano. Hipótese para o bloco 10: o que está por trás do Norte (carga industrial no Pará, expansão em Manaus, interligações novas) e se a estabilidade do SE reflete MMGD *dentro* da estimativa do ONS ou saturação real.
 

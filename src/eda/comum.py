@@ -19,7 +19,7 @@ import pyarrow.parquet as pq
 matplotlib.use("Agg")
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-FATO_PATH = PROJECT_ROOT / "data" / "consolidated" / "CURVA_CARGA_2019_2026.parquet"
+FATO_PATH = PROJECT_ROOT / "data" / "consolidated" / "CURVA_CARGA_2017_2026.parquet"
 DIM_PATH = PROJECT_ROOT / "data" / "consolidated" / "dim_datas.parquet"
 ANOMALIAS_PATH = PROJECT_ROOT / "data" / "reference" / "anomalias.csv"
 IMG_DIR = PROJECT_ROOT / "docs" / "eda" / "img"
@@ -70,12 +70,13 @@ def carregar_fato() -> dict[str, dict[datetime, float]]:
     rows = pq.read_table(FATO_PATH).to_pylist()
     serie: dict[str, dict[datetime, float]] = defaultdict(dict)
     for r in rows:
-        serie[r["id_subsistema"]][r["din_instante"]] = r["val_cargaenergiahomwmed"]
-    sin: dict[datetime, float] = defaultdict(float)
-    for s in SUBSISTEMAS:
-        for t, v in serie[s].items():
-            sin[t] += v
-    serie["SIN"] = dict(sin)
+        if r["val_cargaenergiahomwmed"] is not None:  # horas inexistentes do horário de verão
+            serie[r["id_subsistema"]][r["din_instante"]] = r["val_cargaenergiahomwmed"]
+    sin: dict[datetime, float] = {}
+    for t in serie["SE"]:
+        if all(t in serie[s] for s in SUBSISTEMAS):
+            sin[t] = sum(serie[s][t] for s in SUBSISTEMAS)
+    serie["SIN"] = sin
     return serie
 
 

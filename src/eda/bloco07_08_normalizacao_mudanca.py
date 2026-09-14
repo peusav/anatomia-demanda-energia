@@ -26,8 +26,8 @@ from comum import (COR, PROJECT_ROOT, ROTULO, SUBSISTEMAS, TEXTO_2, carregar_ano
 
 DOC_PATH = PROJECT_ROOT / "docs" / "eda" / "07-08-normalizacao-mudanca.md"
 TODOS = ["SIN"] + SUBSISTEMAS
-ANOS = [2019, 2021, 2022, 2023, 2024, 2025, 2026]  # 2020 fora (D04); 2026 parcial
-REGIME = {2019: "Supervisão", 2021: "misto", 2022: "Global", 2023: "misto", 2024: "Global+MMGD", 2025: "Global+MMGD", 2026: "Global+MMGD (YTD)"}
+ANOS = [2017, 2018, 2019, 2021, 2022, 2023, 2024, 2025, 2026]  # 2020 fora (D04); 2026 parcial
+REGIME = {2017: "Supervisão", 2018: "Supervisão", 2019: "Supervisão", 2021: "misto", 2022: "Global", 2023: "misto", 2024: "Global+MMGD", 2025: "Global+MMGD", 2026: "Global+MMGD (YTD)"}
 PARES = [("SE", "S"), ("NE", "N"), ("SE", "NE"), ("S", "N")]
 
 
@@ -100,7 +100,7 @@ def main() -> None:
         cores = tons(COR[s], len(ANOS))
         for y, c in zip(ANOS, cores):
             ys = [100 * (v - 1) for v in tipico_ano[s][y]]
-            ax.plot(range(24), ys, color=c, linewidth=2.2 if y in (2019, 2025) else 1.3, label=str(y) + (" YTD" if y == 2026 else ""))
+            ax.plot(range(24), ys, color=c, linewidth=2.2 if y in (2017, 2025) else 1.3, label=str(y) + (" YTD" if y == 2026 else ""))
         ax.axhline(0, color=TEXTO_2, linewidth=0.8)
         ax.set_title(ROTULO[s], fontsize=10)
         ax.set_xticks(range(0, 24, 4))
@@ -108,7 +108,7 @@ def main() -> None:
         if s == "SE":
             ax.legend(fontsize=7, loc="lower right", ncol=2)
     axes[0].set_ylabel("% em relação à média do dia")
-    fig.suptitle("Dia útil típico de cada ano, normalizado (claro = 2019 … escuro = 2026); 2020 omitido", x=0.01, ha="left", fontsize=11, color=TEXTO_2)
+    fig.suptitle("Dia útil típico de cada ano, normalizado (claro = 2017 … escuro = 2026); 2020 omitido", x=0.01, ha="left", fontsize=11, color=TEXTO_2)
     fig.tight_layout()
     salvar(fig, "08_formato_por_ano.png")
 
@@ -141,7 +141,7 @@ def main() -> None:
         ax.set_title(titulo, fontsize=10)
         ax.set_xticks(ANOS)
         ax.set_xticklabels([str(y)[2:] + ("*" if y == 2026 else "") for y in ANOS])
-        ax.set_xlim(2018.5, 2027.3)
+        ax.set_xlim(2016.5, 2027.3)
         ax.grid(axis="x", visible=False)
         if chave != "amplitude":
             ax.axhline(0, color=TEXTO_2, linewidth=0.8)
@@ -190,7 +190,7 @@ def main() -> None:
         ax.axvline(x - 0.5 if x == 2021 else x - 0.67, color=TEXTO_2, linewidth=1, linestyle=(0, (4, 3)))
     ax.set_xticks(ANOS)
     ax.set_xticklabels([str(y)[2:] + ("*" if y == 2026 else "") for y in ANOS])
-    ax.set_xlim(2018.5, 2027.6)
+    ax.set_xlim(2016.5, 2027.6)
     ax.set_ylabel("distância de formato (p.p. da média do dia)")
     ax.set_title("Os subsistemas estão convergindo? Distância entre curvas típicas de dia útil, por ano")
     ax.grid(axis="x", visible=False)
@@ -221,7 +221,7 @@ def main() -> None:
     linhas = []
     for s in TODOS:
         for e in ("Verão", "Inverno"):
-            for y in (2019, 2022, 2025):
+            for y in (2017, 2019, 2022, 2025):
                 r = por_estacao(s, y, e)
                 if r:
                     linhas.append([ROTULO[s], e, y, r["n"], f"{100 * r['pico_tarde']:.0f}%", f"{100 * (r['meio_dia'] - 1):+.1f}%", f"{100 * (r['noite'] - 1):+.1f}%", f"{100 * r['amplitude']:.0f}%"])
@@ -249,9 +249,9 @@ As três candidatas de [03-metodologia.md](../03-metodologia.md) §6, aplicadas 
 
 {t_norm}
 
-## Bloco 8 — Como o formato mudou, 2019 → 2026
+## Bloco 8 — Como o formato mudou, 2017 → 2026
 
-Dias úteis; 2020 omitido (D04); 01/01–16/02/2019 excluído (A8, horário de verão); dias com horas excluídas em `anomalias.csv` fora. Regimes: 2019 = Supervisão ONS; 2021 e 2023 = anos mistos; 2022 = Carga global; 2024–2026 = Carga global + MMGD. **Toda diferença que atravessa 2021 ou 2023 mistura mudança de demanda com mudança de medição.**
+Dias úteis; 2020 omitido (D04); janelas de horário de verão excluídas (A8, 2017–2019); dias com horas excluídas em `anomalias.csv` fora. Regimes: 2017–2019 = Supervisão ONS; 2021 e 2023 = anos mistos; 2022 = Carga global; 2024–2026 = Carga global + MMGD. **Toda diferença que atravessa 2021 ou 2023 mistura mudança de demanda com mudança de medição.**
 
 ![Formato por ano](img/08_formato_por_ano.png)
 
@@ -261,7 +261,7 @@ Dias úteis; 2020 omitido (D04); 01/01–16/02/2019 excluído (A8, horário de v
 
 {t_ind}
 
-### Verão e inverno separados: 2019 × 2022 × 2025
+### Verão e inverno separados: 2017 × 2019 × 2022 × 2025
 
 {t_est}
 
@@ -281,21 +281,21 @@ Dias úteis; 2020 omitido (D04); 01/01–16/02/2019 excluído (A8, horário de v
 
 As três candidatas contam a mesma história de formato, mas com legibilidade diferente. **Min-max** apaga a informação de amplitude: as quatro curvas ficam com amplitude ≈ 0,9 e o Norte, que é o subsistema mais plano do país, parece tão "pontudo" quanto o Sul. **Pelo pico** preserva a amplitude, mas comprime tudo abaixo de 1,0 e reduz a separação visual (às 3h, NE 0,86 e N 0,89 — quase indistinguíveis). **Pela média** mantém a amplitude, separa bem as curvas e tem a leitura mais natural para a persona ("às 19h a carga está 13% acima da média do dia"). A decisão preliminar D05 passa a definitiva (D13); a normalização pelo pico fica como medida complementar para perguntas sobre o pico.
 
-### Bloco 8 — o dia está girando: menos meio-dia, mais noite
+### Bloco 8 — o dia está girando: menos meio-dia, mais noite (leitura revisada após a ampliação para 2017)
 
-**O achado central.** Em todos os subsistemas o meio do dia (12–15h) perdeu peso relativo e a noite (18–21h) ganhou. No SIN, o meio do dia estava **+9,5%** acima da média em 2019 e está **+3,7%** em 2026; a noite foi de +8,9% para +12,0%. No Nordeste a virada é completa: o meio do dia era +6,4% em 2019 e está **−2,6%** em 2026 — **abaixo da média do dia** — enquanto a noite dobrou (+3,6% → +9,3%). A amplitude quase não mudou (SE 36% → 34–35%; NE 24% → 21%); o que mudou foi *onde* a carga está no dia. O formato não achatou nem se alongou: **girou**, da tarde para a noite.
+**O achado central.** Em todos os subsistemas o meio do dia (12–15h) perdeu peso relativo e a noite (18–21h) ganhou. No SIN, o meio do dia esteve estável em **+9,5 a +9,9%** acima da média nos três anos do regime original (2017, 2018, 2019) e está **+3,7%** em 2026; a noite foi de +8,9% para +12,0%. No Nordeste a virada é completa: o meio do dia era +6,4% em 2019 e está **−2,6%** em 2026 — **abaixo da média do dia** — enquanto a noite dobrou (+3,6% → +9,3%). A amplitude quase não mudou (SE 36% → 34–35%; NE 24% → 21%); o que mudou foi *onde* a carga está no dia. O formato não achatou nem se alongou: **girou**, da tarde para a noite.
 
 **A virada acontece sob regime homogêneo — não é só efeito de medição.** A comparação mais limpa é a YTD 2024 × 2025 × 2026 no mesmo intervalo de datas, toda sob "Carga global + MMGD": o meio do dia cai de +7,2% para +5,3% e +3,7% no SIN; no NE, de +2,9% para −0,5% e −2,6%; a noite sobe em todos. Cerca de **1,7 p.p. por ano** de rotação no SIN, sem nenhuma mudança de metodologia no caminho. A sequência anual completa mostra um detalhe que confirma a leitura: em 2024, primeiro ano cheio com a MMGD *somada* à carga, o meio do dia **sobe** em relação a 2023 (SIN +5,9% → +7,4%) — exatamente o que se espera quando se passa a contar uma geração diurna que antes era invisível — e depois **volta a cair** em 2025 e 2026. Ou seja: a estimativa de MMGD do ONS devolve parte do meio-dia, mas a rotação continua por baixo dela.
 
-**A hora do pico virou uma questão de estação — e o inverno perdeu a tarde por completo.** Em 2019 o pico do SIN ocorria à tarde em 58% dos dias úteis e no inverno em 17% deles; desde 2022 o inverno tem **0%** de picos à tarde em SE, S e NE. No verão a tarde ainda vence quando faz calor (84% em 2019, 75% em 2025, 52% no verão ameno de 2022). O resultado anual, por isso, oscila com o clima (51% à tarde em 2024, ano quente; 23% em 2025) e não deve ser lido como tendência sozinho — a tendência está nas estações separadas.
+**A hora do pico virou uma questão de estação — e o inverno perdeu a tarde por completo.** Em 2017–2019 o pico do SIN ocorria à tarde em 44–58% dos dias úteis e no inverno em 15–25% deles; desde 2022 o inverno tem **0%** de picos à tarde em SE, S e NE. No verão a tarde ainda vence quando faz calor (84% em 2019, 75% em 2025, 52% no verão ameno de 2022). O resultado anual, por isso, oscila com o clima (51% à tarde em 2024, ano quente; 23% em 2025) e não deve ser lido como tendência sozinho — a tendência está nas estações separadas.
 
-**O Nordeste é onde a história é mais forte.** Em 2019, 80–85% dos dias úteis do NE tinham pico à tarde, no verão *e* no inverno. Desde 2021, **0%**: o NE virou um sistema de pico noturno em todas as estações. O meio do dia do NE, que era a parte mais alta do dia, hoje está abaixo da média. É o subsistema com a maior penetração relativa de geração solar distribuída e o resultado é o "vale solar" clássico: a rede vê cada vez menos demanda quando o sol está alto.
+**O Nordeste é onde a história é mais forte.** Em 2017, 2018 e 2019, 82–92% dos dias úteis do NE tinham pico à tarde, no verão *e* no inverno (63–70% mesmo no inverno). Desde 2021, **0%**: o NE virou um sistema de pico noturno em todas as estações. O meio do dia do NE, que era a parte mais alta do dia, hoje está abaixo da média. É o subsistema com a maior penetração relativa de geração solar distribuída e o resultado é o "vale solar" clássico: a rede vê cada vez menos demanda quando o sol está alto.
 
-**Os subsistemas não estão convergindo.** A distância SE × NE foi de 7,1 p.p. em 2019 para 8,1 em 2026; Sul × Norte segue em 12–13. Os dois pares internos (SE × S; NE × N) ficaram estáveis. Cada região está mudando à sua maneira e as diferenças de formato aumentam.
+**Os subsistemas não estão convergindo.** A distância SE × NE foi de 6,7 p.p. em 2017 para 8,1 em 2026; Sul × Norte segue em 12–14. Os dois pares internos (SE × S; NE × N) ficaram estáveis ou se aproximaram de leve. Cada região está mudando à sua maneira e as diferenças de formato aumentam.
 
-**Um detalhe do Sul.** A curva de 2019 tinha um degrau de almoço às 12h (queda de ~5 p.p.) que hoje é um vale de ~10 p.p. — mesmo fenômeno solar somado ao horário de almoço industrial.
+**Um detalhe do Sul.** A curva de 2017–2019 tinha um degrau de almoço às 12h (queda de ~5 p.p.) que hoje é um vale de ~10 p.p. — mesmo fenômeno solar somado ao horário de almoço industrial.
 
-**Sobre 2019 como única referência.** A virada do NE (80% → 0% de picos à tarde entre 2019 e 2021) e a queda do meio do dia em todos os subsistemas entre 2019 e 2021 são grandes demais para repousar num único ano pré-pandemia, cujo verão tem só 25 dias válidos (o resto foi excluído pelo horário de verão). **Recomendação: ampliar a série para 2017–2018** (três anos sob o regime "Supervisão ONS"), tratando cada janela de horário de verão com a regra A8. Isso responde se 2019 era típico e dá ao produto um "antes" robusto para a Camada 3.
+**2019 era típico — a ampliação para 2017 confirmou.** Nos três anos do regime original os indicadores de formato são quase idênticos entre si (meio do dia do SIN +9,9 / +9,6 / +9,5%; NE com pico à tarde em 82 / 92 / 85% dos dias; distância SE × NE 6,7 / 6,9 / 7,1) e o desconto de domingo não se move. Ou seja: o "antes" é um patamar estável de três anos, não um ponto isolado, e a virada que aparece entre 2019 e 2021 é uma ruptura de fato — parte medição (carga global), parte real (o vale solar continua sob regime homogêneo em 2024–2026). A Camada 3 do produto pode comparar "2017–2019" com "2024–2026" sem depender de um ano só.
 
 **O que leva para o produto.** (1) O gráfico de formato por ano (rampa clara → escura) é a imagem da Camada 3 "como o perfil mudou". (2) As séries de meio-dia e noite por ano, com os marcos, são o KPI de mudança — e a comparação YTD sob regime homogêneo é a versão defensável. (3) "Pico à tarde vs à noite, por estação" substitui qualquer "hora média do pico". (4) O NE merece destaque próprio: é a região onde a demanda mais mudou de formato.
 """
