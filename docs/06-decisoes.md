@@ -88,6 +88,8 @@ Registro curto das decisões que não são dedutíveis do código. Formato: cont
 
 ## Pendentes (a decidir na exploração)
 
+- Abrir a camada EPE (consumo por classe e UF) para decidir H7 (Norte e Nordeste crescem pela baixa tensão)? É o primeiro achado do ONS que pede a EPE; decidir na síntese.
+
 
 - ~~Tratamento dos saltos hora a hora~~ → resolvido em D10.
 - Confirmar a normalização principal (D05).

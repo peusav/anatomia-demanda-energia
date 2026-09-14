@@ -30,6 +30,14 @@ Toda fonte consultada, com o que foi extraído dela. Onde a informação é defi
 | Consumo Mensal de Energia Elétrica por Classe | https://www.epe.gov.br/pt/publicacoes-dados-abertos/publicacoes/consumo-de-energia-eletrica | Página | pendente | Camada territorial (consumo por UF/região/classe) |
 | Anuário Estatístico de Energia Elétrica | https://www.epe.gov.br/pt/publicacoes-dados-abertos/publicacoes/anuario-estatistico-de-energia-eletrica | Página | pendente | Mapeamento subsistema × UF; consumo per capita |
 
+## EPE / ONS / CCEE — notas técnicas
+
+| Título | URL | Tipo | Publicação | Acesso | Uso |
+|---|---|---|---|---|---|
+| NT EPE-DEA-SEE-001/2025 · ONS DPL 0013/2025 · CCEE 02434/2025 — Previsão de carga para o Planejamento Anual da Operação Energética 2025–2029 | https://www.epe.gov.br/sites-pt/publicacoes-dados-abertos/publicacoes/PublicacoesArquivos/publicacao-305/topico-730/Nota%20Te%CC%81cnica%20-%20Previsa%CC%83o%20de%20carga%20para%20o%20Planejamento%20Anual%20da%20Operac%CC%A7a%CC%83o%20Energe%CC%81tica%20-%202025-2029.pdf | PDF (31 p.) | 2025 | 14/09/2026 | Leitura oficial de 2024 (calor, renda, classes); MMGD por subsistema em MWmed (Tabela 8); premissa de Roraima em fev/2026; "carga global recomposta 2018–2022"; método de perfis típicos — bloco 11 (H6, H7, H8, H10, H11, H12) |
+| NT ONS DPL 0119/2024 · EPE-DEA-SEE-009/24 — Projeção de carga global de demanda máxima considerando os efeitos da Portaria Normativa nº 50/2022 | https://www.epe.gov.br/sites-pt/publicacoes-dados-abertos/publicacoes/PublicacoesArquivos/publicacao-305/topico-690/NT-%20Portaria%2050_vers%C3%A3o_publica%C3%A7%C3%A3oFINAL3%201.pdf | PDF (17 p.) | 2024 | 14/09/2026 | Migração ao mercado livre e demanda máxima noturna — bloco 11 (H5) |
+| IT-EPE-DEA-SEE-001/2021 — Metodologia para criação de séries horárias de geração distribuída fotovoltaica por subsistema | https://www.epe.gov.br/sites-pt/publicacoes-dados-abertos/publicacoes/PublicacoesArquivos/publicacao-573/IT-EPE-DEA-SEE-001-2021%20-%20Metodologia%20para%20cria%C3%A7%C3%A3o%20de%20s%C3%A9ries%20hor%C3%A1rias%20de%20gera%C3%A7%C3%A3o%20distribu%C3%ADda%20fotovoltaica%20por%20subsistema.pdf | PDF | 2021 | 14/09/2026 (localizada, não lida) | Como se estima o perfil horário da MMGD |
+
 ## ANEEL
 
 | Título | URL | Tipo | Atualização | Acesso | Uso |
@@ -62,5 +70,7 @@ Toda fonte consultada, com o que foi extraído dela. Onde a informação é defi
 - ~~Composição dos subsistemas por UF~~ → resolvida pelo Boletim de 15/08/2023. Falta apenas confirmar a data em que Roraima passou a operar interligado ao SIN.
 - Boletins diários do ONS de 2020 não estão disponíveis no endereço atual (404); a oscilação horária do Norte em abril/2020 (A2) segue sem explicação oficial.
 - Nota técnica do ONS sobre a estimativa de MMGD (citada como disponível no SINtegre, portal de acesso restrito).
+- "Carga Global recomposta com MMGD no período 2018 a 2022" (NT EPE-DEA-SEE-001/2025): histórico homogeneizado usado por ONS/EPE, não publicado em dados abertos. Se publicado, substitui a regra das três janelas (bloco 11, H11).
+- Interligação de Roraima ao SIN (premissa: fev/2026): sem degrau visível no Norte até set/2026 (bloco 11, H8).
 - Confirmação documental da convenção de hora do ONS (verificado empiricamente que os carimbos seguem a hora oficial de Brasília, com UTC−2 durante o horário de verão até 16/02/2019; não encontrado em texto oficial).
 - Decisão pendente após o bloco 8: ampliar a série para 2017–2018 (exigiria a mesma regra para cada janela de horário de verão).
