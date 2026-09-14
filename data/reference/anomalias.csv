@@ -22,6 +22,16 @@ E7,2026-06-19,2026-06-19,21,22,*,evento_documentado,sinalizar,Copa 2026: Brasil 
 E8,2026-06-24,2026-06-24,19,20,*,evento_documentado,sinalizar,Copa 2026: Brasil x Escócia 19h; carga -13 a -15% (SE),olympics.com; soccerway
 E9,2026-06-29,2026-06-29,14,16,*,evento_documentado,sinalizar,Copa 2026: 32 avos 14h (segunda-feira); carga -19 a -22% (SE),olympics.com; soccerway
 E10,2026-07-05,2026-07-05,17,19,*,evento_documentado,sinalizar,Copa 2026: oitavas 17h (domingo); carga -15 a -18% (SE),olympics.com; soccerway
+E11,2018-05-21,2018-06-01,,,*,evento_documentado,sinalizar,Greve dos caminhoneiros: carga do SIN -7% a -22% vs duas semanas antes (31/05: SIN -22%; S -29%; SE -23%); recuperação em 02-03/06,Wikipédia: Greve dos caminhoneiros no Brasil em 2018
+E12,2018-06-17,2018-06-17,15,16,*,evento_documentado,sinalizar,Copa 2018: Brasil x Suíça 15h (domingo); SE -10 a -12%,calendário público
+E13,2018-06-22,2018-06-22,9,10,*,evento_documentado,sinalizar,Copa 2018: Brasil x Costa Rica 9h; SE -15 a -16%,calendário público
+E14,2018-06-27,2018-06-27,15,16,*,evento_documentado,sinalizar,Copa 2018: Brasil x Sérvia 15h; SE -17 a -19%,calendário público
+E15,2018-07-02,2018-07-02,15,16,*,evento_documentado,sinalizar,Copa 2018: Brasil x México 15h; SE -3% (sinal fraco),calendário público
+E16,2018-07-06,2018-07-06,15,16,*,evento_documentado,sinalizar,Copa 2018: Brasil x Bélgica 15h; SE -20 a -21%,calendário público
+E17,2020-06-30,2020-07-01,,,S,evento_documentado,sinalizar,Ciclone-bomba no Sul (30/06): 1.9 milhão de consumidores sem energia em SC/RS/PR; S -8% e -12% vs semana anterior,Wikipédia: Ciclone-bomba e derecho no Sul do Brasil em 2020
+E18,2023-11-03,2023-11-06,,,SE,evento_documentado,sinalizar,Temporal em São Paulo (03/11): até 3.7 milhões sem energia por até 6 dias (Enel); SE -5% a -10% vs semana anterior,CNN Brasil; ANEEL
+E19,2021-02-15,2021-02-16,,,NE,evento_documentado,sinalizar,Carnaval 2021 sem ponto facultativo (COVID): NE -2% vs dia útil (em 2019: -15/-18%); SE manteve -13%. A dim_datas marca como Feriado,docs/07-anomalias.md
+E20,2022-02-28,2022-03-01,,,*,evento_documentado,sinalizar,Carnaval 2022 parcialmente cancelado: SE -2/-4% e S +1/-6% vs dia útil (em 2019 e 2023: -12% e -18/-24%); NE -6%. A dim_datas marca como Feriado,docs/07-anomalias.md
 C1,2023-11-13,2023-11-17,,,SE,clima_documentado,sinalizar,Onda de calor: SE +20 a +24% vs semana anterior em 13-14/11; 61.217 MWmed às 14h de 14/11 (recorde do SE até fev/2025),Imprensa/ONS nov 2023
 C2,2025-02-21,2025-02-26,,,*,clima_documentado,sinalizar,Onda de calor: sequência de recordes de demanda instantânea do SIN; 106.532 MW às 14h27 de 26/02 (horária 106.149 MWmed),MME/ONS fev 2025
 C3,2020-03-12,2020-03-15,,,S,clima_hipotese,sinalizar,Sul +17 a +23% vs mesmo tipo de dia; imediatamente antes do isolamento social,docs/07-anomalias.md
@@ -29,3 +39,4 @@ C4,2022-01-16,2022-01-23,,,S,clima_hipotese,sinalizar,Sul +16 a +22% vs mesmo ti
 C5,2023-12-14,2023-12-18,,,S,clima_hipotese,sinalizar,Sul +16 a +24% vs mesmo tipo de dia,docs/07-anomalias.md
 C6,2024-11-09,2024-11-09,,,S,clima_hipotese,sinalizar,Sábado com perfil de domingo de inverno (-20%; carga diurna de 7.6 GW contra 13-14 GW no sábado anterior); ONS sem ocorrências; provável frente fria,docs/07-anomalias.md
 C7,2026-05-03,2026-05-10,,,S,clima_hipotese,sinalizar,Dois domingos -20% de dia e rampa noturna acentuada; provável frio,docs/07-anomalias.md
+C8,2020-09-28,2020-10-03,,,SE,clima_documentado,sinalizar,Onda de calor histórica em SP/MS (17/09-05/10; recorde de setembro em SP): SE +10% a +18% vs semana anterior,INMET; CNN Brasil

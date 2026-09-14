@@ -37,6 +37,11 @@ Toda fonte consultada, com o que foi extraído dela. Onde a informação é defi
 | Jogos do Brasil na Copa do Mundo 2026 — Olympics.com | https://www.olympics.com/pt/noticias/copa-do-mundo-2026-brasil-locais-datas-jogos-cruzamentos-selecao-brasil | 13/09/2026 | Datas e horários dos jogos (E6–E10) |
 | Jogos do Brasil na Copa 2022 | conhecimento público (24/11 16h, 28/11 13h, 02/12 16h, 05/12 16h, 09/12 12h, horário de Brasília) | — | E1–E5 |
 
+| Greve dos caminhoneiros no Brasil em 2018 — Wikipédia | https://pt.wikipedia.org/wiki/Greve_dos_caminhoneiros_no_Brasil_em_2018 | 13/09/2026 | Datas da greve (21/05–01/06/2018) — E11 |
+| Ciclone-bomba e derecho no Sul do Brasil em 2020 — Wikipédia | https://pt.wikipedia.org/wiki/Ciclone-bomba_e_derecho_no_Sul_do_Brasil_em_2020 | 13/09/2026 | 30/06/2020; 1,9 milhão sem energia — E17 |
+| Enel levou 6 dias para restabelecer luz em 2023 em SP — CNN Brasil | https://www.cnnbrasil.com.br/nacional/enel-levou-6-dias-para-restabelecer-luz-em-2023-em-sp-apagao-de-agora-ja-dura-3-dias/ | 13/09/2026 | Temporal de 03/11/2023 — E18 |
+| Onda de calor em São Paulo e Mato Grosso do Sul — INMET | https://portal.inmet.gov.br/noticias/atualiza%C3%A7%C3%A3o-onda-de-calor-em-s%C3%A3o-paulo-e-mato-grosso-do-sul-2 | 13/09/2026 | Setembro–outubro/2020 — C8 |
+
 ## Fontes secundárias (não oficiais — usadas apenas como pista)
 
 | Título | URL | Acesso | O que indica | Status |

@@ -90,6 +90,38 @@ A série foi ampliada para 2017–2026 (decisão D14). O diagnóstico de qualida
 
 **Reconciliação com a base diária em 2017.** Quatro dias do SE em outubro e novembro de 2017 divergem 0,5–1,9% entre a curva horária e a base diária (por exemplo 07/10: diária 34.837, horária 34.182 MWmed). É o único ano completo em que as duas bases não coincidem exatamente — sinal de que foram revisadas em momentos diferentes. Registrado; sem tratamento (as diferenças são pequenas e 2017 é ano de contexto).
 
+## Parte 4 — Segunda varredura externa (13/09/2026)
+
+Nova lista de eventos externos testada contra a base 2017–2026, com foco nos anos novos e em eventos sociais e climáticos que a primeira varredura não cobriu.
+
+### Eventos que deixam rastro
+
+| Evento | Rastro na base | Registro |
+|---|---|---|
+| **Greve dos caminhoneiros** (21/05–01/06/2018) | O maior evento não climático da série depois da COVID: carga do SIN **−7% na segunda-feira 21/05, −22% na quinta 31/05** (Sul −29%, SE −23%) em relação a duas semanas antes; volta ao normal em 02–03/06. Doze dias em que o país parou e a rede sentiu — indústria sem insumo, comércio sem estoque | E11, `sinalizar` |
+| **Copa do Mundo 2018** — cinco jogos do Brasil | −10 a −21% na hora do jogo no SE (Brasil × Bélgica, 06/07 15h: −21%). O jogo contra o México (02/07, 15h) quase não aparece (−3%) — sem explicação | E12–E16, `sinalizar` |
+| **Ciclone-bomba no Sul** (30/06/2020) | 1,9 milhão de consumidores sem energia em SC, RS e PR; Sul −8% em 30/06 e −12% em 01/07 vs semana anterior | E17, `sinalizar` |
+| **Temporal em São Paulo** (03/11/2023, apagão de até 6 dias na área da Enel) | SE −5% em 03/11, −10% em 05 e 06/11 vs semana anterior. O sinal se mistura com o feriado de Finados (02/11) e com a onda de calor que veio logo depois (13–17/11) | E18, `sinalizar` |
+| **Onda de calor de setembro/2020** (recorde de setembro em SP; 17/09–05/10) | SE +10 a +18% vs semana anterior entre 28/09 e 02/10 | C8, `sinalizar` |
+| **Carnaval cancelado pela COVID** | 2021: o Nordeste tratou a segunda e a terça como dias úteis (−2% vs dia útil; em 2019 foram −15/−18%), o SE não (−13%). 2022: o SE e o Sul trabalharam (−2 a −4%; +1 a −6%), o NE folgou parcialmente (−6%). A dimensão de datas marca os dois anos como Feriado — está correta como regra, mas esses quatro dias não são feriados na carga | E19, E20, `sinalizar` |
+
+**Um efeito de calendário novo: o recesso de fim de ano.** A varredura de nível diário de 2017–2018 apontou os dias úteis entre o Natal e o Ano-Novo — 26 a 30/12 — e o 02/01 como "dias úteis atípicos", com −5 a −16% no SE e −5 a −23% no Sul, em todos os anos (o NE quase não sente). Não são feriados nem vésperas; são dias em que boa parte do país está de recesso. A dimensão de datas ganhou a coluna `Recesso` (24/12 a 02/01), que substitui `Vespera` como critério de exclusão das curvas típicas de dia útil.
+
+### Eventos que não deixam rastro (ou deixam rastro ambíguo)
+
+| Evento | Resultado |
+|---|---|
+| **Crise hídrica 2021** (bandeira de escassez, set/2021–abr/2022) | A carga do SIN em cada mês de 2021–22 fica 1–11% acima do mesmo mês de 2019 — sem sinal de redução por tarifa. Mas 2021 é o ano da "carga global", então qualquer efeito de demanda está escondido pela mudança de medição. Inconclusivo |
+| **Eleições** (07 e 28/10/2018; 02 e 30/10/2022, domingos) | ±5% em relação ao domingo anterior, dentro do ruído de um domingo de outubro |
+| **Colapso hospitalar de Manaus** (jan/2021) | Norte −4 a −7% em 18–20/01; fraco e sem padrão |
+| **Onda de frio de julho/2021** (geada) | Sul +2%; nada |
+| **Temporal em SP de 11/10/2024** (Enel, 2 milhões) | SE −2 a −6%, mas 12/10 é feriado; ambíguo |
+| **Copa 2018, Brasil × México** | −3% na hora do jogo, contra −10 a −21% nos outros quatro |
+
+### O que muda na tabela
+
+`data/reference/anomalias.csv` passa a ter 41 linhas: 13 de dado, operação e convenção horária (A), 20 de eventos sociais (E), 8 de clima (C); 11 com tratamento `excluir`, 30 `sinalizar`. Efeitos de calendário (feriados, pontos facultativos, recesso) continuam na `dim_datas`.
+
 ## Composição dos subsistemas confirmada
 
 O boletim de 15/08/2023 lista os estados de cada submercado:
