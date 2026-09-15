@@ -32,6 +32,7 @@ Três cuidados que valem para qualquer número deste projeto:
 | [docs/06-decisoes.md](docs/06-decisoes.md) | Decisões analíticas e pendências |
 | [docs/07-anomalias.md](docs/07-anomalias.md) | Cada anomalia sinalizada: dados, fontes externas, classificação e tratamento |
 | [docs/08-modelo-powerbi.md](docs/08-modelo-powerbi.md) | Tabelas, relacionamentos e medidas do modelo semântico; como validar |
+| [docs/09-dashboard.md](docs/09-dashboard.md) | Plano das páginas, visuais, medidas e ordem de construção do dashboard |
 | [docs/fontes.md](docs/fontes.md) | Todas as fontes, com URL, instituição e data de acesso |
 | [docs/eda/00-sintese.md](docs/eda/00-sintese.md) | Os cinco padrões que estruturam o dashboard, visuais por camada e medidas necessárias |
 | [docs/eda/](docs/eda/) | Análise exploratória por bloco, com gráficos gerados por `src/eda/` |
