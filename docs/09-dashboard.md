@@ -4,7 +4,7 @@ Planejamento das páginas, visuais e textos, a partir da [síntese da exploraç�
 
 ## Princípios de desenho
 
-1. **Um visual, uma pergunta.** Cada visual tem um título que é a resposta, não o nome do gráfico ("O pico é às 14h no verão e às 19h no inverno", não "Carga por hora e mês").
+1. **Um visual, uma pergunta.** Título = o assunto; subtítulo = a pergunta que o visual responde mais a unidade de leitura ("O formato do dia em cada subsistema" / "Como a carga se distribui pelas 24 horas? Cada ponto é a hora em relação à média do próprio dia"). O **insight não vai no título**: um visual com filtros muda de resposta a cada clique, e um título-afirmação fica errado assim que o filtro muda. Insights ficam em caixas de texto fixas (que não reagem a filtros) ou na página "Sobre". Explicações necessárias para ler o visual (normalização, exclusões) vão num ícone ⓘ com dica de ferramenta.
 2. **A persona não é do setor.** Unidades explicadas uma vez (GWmed = "potência média"); nenhum jargão sem tooltip; os marcos metodológicos aparecem como linhas com rótulo, não como nota de rodapé.
 3. **Cor segue a entidade.** Uma cor fixa por subsistema (as da exploração: SE azul, Sul verde-água, NE laranja, Norte amarelo; SIN cinza), em todas as páginas. Tipo de dia e estação têm as suas.
 4. **Nunca "hora média do pico".** Hora do pico só em dia único ou curva típica; ao longo do tempo, "% de dias com pico à tarde/à noite".
@@ -39,12 +39,14 @@ Planejamento das páginas, visuais e textos, a partir da [síntese da exploraç�
 
 | # | Visual | Campos | Medidas | Filtros do visual |
 |---|---|---|---|---|
-| V1 | Linhas, 4 séries (uma por subsistema), eixo `dim_horas[HoraRotulo]` | legenda `dim_subsistemas[Subsistema]` | `Índice Horário` | `TipoDia` pelo botão (Dia útil padrão; Sábado; Domingo); `Recesso = Não`; anos do núcleo por padrão (2024–2025), obedece ao filtro de ano |
+| V1 | Linhas, 4 séries (uma por subsistema), eixo `dim_horas[HoraRotulo]`. Título "O formato do dia em cada subsistema"; subtítulo "Como a carga se distribui pelas 24 horas? Cada ponto é a hora em relação à média do próprio dia (0% = média)"; ⓘ com a explicação da normalização e das exclusões; linha de referência em 0 rotulada "média do dia"; sem títulos de eixo; sem rótulos na ponta das linhas (a legenda identifica) | legenda `dim_subsistemas[Subsistema]` | `Índice Horário` | `TipoDia` pelo botão (Dia útil padrão; Sábado; Domingo); `Recesso = Não`; anos do núcleo por padrão (2024–2025), obedece ao filtro de ano |
 | V2 | Matriz com formatação condicional (heatmap) — linhas `dim_horas[HoraRotulo]`, colunas `dim_datas[MesAbrev]` | | `Índice Horário` (escala azul, −25% a +25%) | `TipoDia = Dia útil`, `Recesso = Não`; reage ao filtro de subsistema |
 | Cartões | 4 cartões | | `Hora do Pico`, `Pico Horário`, `Vale Horário`, `Amplitude ÷ Média`, `Fator de Carga` — calculados sobre a **curva típica** (contexto do V1) | os mesmos do V1 |
 | V3 | Dispersão — x `Carga Média Válida` por dia, y `Amplitude ÷ Média`, detalhe `dim_datas[Data]`, legenda `EstacaoAno` | | | `TipoDia = Dia útil`, `Recesso = Não`; mostra o subsistema selecionado (com "SIN", mostra o SIN) |
 
-Texto de apoio (caixa pequena sob o título): *"Cada curva mostra quanto cada hora fica acima ou abaixo da média do próprio dia. 0% = a média do dia."*
+Caixa de texto fixa da página (não reage a filtros) com o insight do dia útil: *"No dia útil, o pico é às 14h no Norte, 19h no Sudeste e no Sul, 21h no Nordeste — quatro rotinas no mesmo país."* Sem atribuir causa (indústria × residencial): a curva de carga mostra o horário, não quem consome; a leitura por tipo de consumidor é a hipótese H7, que exigiria dados da EPE.
+
+Texto do ⓘ do V1: *"Para cada dia, dividimos a carga de cada hora pela média daquele dia. Isso tira o efeito de tamanho — o Sudeste é seis vezes o Norte, mas aqui os dois cabem na mesma escala e o que sobra é o formato. Dias com falhas de dado, apagões, horário de verão e o recesso de fim de ano ficam fora."*
 
 Os cartões leem a curva típica, não a série: medidas da pasta **Curva típica** (`Hora do Pico da Curva Típica`, `Pico da Curva Típica (MWmed)`, `Vale da Curva Típica (MWmed)`, `Amplitude da Curva Típica ÷ Média`, `Fator de Carga da Curva Típica`), já no modelo.
 
