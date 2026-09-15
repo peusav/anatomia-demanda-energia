@@ -46,7 +46,7 @@ Planejamento das páginas, visuais e textos, a partir da [síntese da exploraç�
 
 Texto de apoio (caixa pequena sob o título): *"Cada curva mostra quanto cada hora fica acima ou abaixo da média do próprio dia. 0% = a média do dia."*
 
-Ressalva de implementação: os cartões de pico e vale devem ler a curva típica, não a série. Para isso, uma medida auxiliar `Pico da Curva Típica = MAXX(VALUES(dim_horas[Hora]), [Índice Horário])` e equivalentes; adicionar ao modelo antes de montar a página.
+Os cartões leem a curva típica, não a série: medidas da pasta **Curva típica** (`Hora do Pico da Curva Típica`, `Pico da Curva Típica (MWmed)`, `Vale da Curva Típica (MWmed)`, `Amplitude da Curva Típica ÷ Média`, `Fator de Carga da Curva Típica`), já no modelo.
 
 ## Página 2 — Como o perfil mudou
 
@@ -90,8 +90,8 @@ Texto curto, sem gráfico: o que é carga (e por que não é consumo); MWmed; os
 6. Página "Sobre os dados" e botões "?".
 7. Anotações de eventos (segunda iteração).
 
-## Decisões em aberto
+## Decisões tomadas (14/09/2026)
 
-- **"SIN" no filtro de subsistema**: botão explícito que seleciona os quatro, ou ausência de seleção = SIN? Proposta: botão explícito, para a persona não precisar deduzir.
-- **Anos padrão da Página 1**: 2024–2025 (núcleo comparável) fixo, ou obedecer ao filtro de ano? Proposta: padrão 2024–2025, filtro de ano altera.
-- **V3 no SIN**: a dispersão com "todos" mostra o SIN agregado (um ponto por dia). Aceitável; alternativa é ocultar o V3 quando nenhum subsistema está selecionado.
+- **"SIN" no filtro de subsistema**: botão explícito que seleciona os quatro.
+- **Anos padrão da Página 1**: 2024–2025 (núcleo comparável); o filtro de ano altera.
+- **V3 no SIN**: mostra o agregado (um ponto por dia).

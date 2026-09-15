@@ -70,6 +70,17 @@ Pasta **Formato**
 | Meio do Dia (12–15h) ÷ Média · Noite (18–21h) ÷ Média | Índice Horário restrito à faixa | indicadores da rotação do dia (bloco 8) |
 | % Dias com Pico à Tarde / à Noite | parcela dos dias do contexto com Hora do Pico em 12–17h / 18–23h | substitui "hora média do pico" |
 
+Pasta **Curva típica** (cartões da Página 1 — leem a curva típica do contexto, não a série)
+
+| Medida | Definição |
+|---|---|
+| Pico / Vale da Curva Típica ÷ Média | máximo / mínimo de `Índice Horário` sobre as 24 horas |
+| Hora do Pico / do Vale da Curva Típica | hora em que ocorrem |
+| Amplitude da Curva Típica ÷ Média | pico − vale (fração da média do dia) |
+| Fator de Carga da Curva Típica | 1 ÷ (1 + pico) |
+| Média do Dia Típico (MWmed) | Carga Média Válida sem filtro de hora |
+| Pico / Vale da Curva Típica (MWmed) | (1 + índice) × Média do Dia Típico |
+
 Pasta **MMGD**: MMGD Instalada (MW); MMGD ÷ Carga Média. Pasta **Marcos**: Marco Carga Global (02/03/2021) e Marco MMGD (29/04/2023), para linhas de referência.
 
 ## Regras que as medidas já aplicam

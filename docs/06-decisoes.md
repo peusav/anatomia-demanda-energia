@@ -92,6 +92,12 @@ Registro curto das decisões que não são dedutíveis do código. Formato: cont
 **Decisão.** (a) Camada EPE não entra na primeira versão — o único achado que a pede (H7) não muda nenhum visual. (b) A dimensão de hora nasce como `data/reference/dim_horas.csv`, no padrão da tabela de anomalias. (c) Eventos e anomalias entram como anotações nos gráficos históricos, não como página própria. (d) Ordem de construção: modelo e medidas → Camada 2 → Camada 3 → Camada 1 → textos.
 **Consequência.** A próxima etapa é a modelagem no Power BI; nenhuma exploração adicional é pré-requisito.
 
+## D16 — Desenho do dashboard (14/09/2026)
+
+**Contexto.** Plano em [09-dashboard.md](09-dashboard.md).
+**Decisão.** Duas páginas (Anatomia de um dia; Como o perfil mudou) mais uma de apoio; botão "SIN" explícito no filtro de subsistema; Página 1 abre em 2024–2025; a dispersão nível × amplitude mostra o agregado quando todos os subsistemas estão selecionados; cartões leem a curva típica (medidas da pasta "Curva típica").
+**Consequência.** Ordem de construção: V1 primeiro; anotações de eventos só na segunda iteração.
+
 ## Pendentes
 
 - Nenhuma pendência analítica aberta. Histórico: saltos hora a hora → D10; normalização → D13; dimensão de hora e camada EPE → D15.
